@@ -1,0 +1,11 @@
+{
+  "name": "navbar",
+  "main": "dist/main.js",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "NODE_ENV=production rspack build --config rspack.config.lib.ts",
+    "build:dev": "NODE_ENV=development rspack build --config rspack.config.dev.ts",
+    "build:start": "cd dist && rspack serve --config rspack.config.dev.ts",
+    "start": "NODE_ENV=development rspack serve --config rspack.config.dev.ts"
+  }
+}
