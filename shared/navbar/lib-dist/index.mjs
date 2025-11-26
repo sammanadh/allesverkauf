@@ -1,7 +1,6 @@
-/*! For license information please see index.cjs.LICENSE.txt */
-"use strict";
+/*! For license information please see index.mjs.LICENSE.txt */
 var __webpack_modules__ = {
-    "../../node_modules/react/cjs/react-jsx-runtime.development.js": function(__unused_webpack_module, exports1, __webpack_require__) {
+    "../../node_modules/react/cjs/react-jsx-runtime.development.js": function(__unused_webpack_module, exports, __webpack_require__) {
         /**
  * @license React
  * react-jsx-runtime.development.js
@@ -198,13 +197,13 @@ var __webpack_modules__ = {
             var unknownOwnerDebugStack = React.react_stack_bottom_frame.bind(React, UnknownOwner)();
             var unknownOwnerDebugTask = createTask(getTaskName(UnknownOwner));
             var didWarnAboutKeySpread = {};
-            exports1.jsx = function(type, config, maybeKey) {
+            exports.jsx = function(type, config, maybeKey) {
                 var trackActualOwner = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
                 return jsxDEVImpl(type, config, maybeKey, !1, trackActualOwner ? Error("react-stack-top-frame") : unknownOwnerDebugStack, trackActualOwner ? createTask(getTaskName(type)) : unknownOwnerDebugTask);
             };
         }();
     },
-    "../../node_modules/react/cjs/react-jsx-runtime.production.js": function(__unused_webpack_module, exports1) {
+    "../../node_modules/react/cjs/react-jsx-runtime.production.js": function(__unused_webpack_module, exports) {
         /**
  * @license React
  * react-jsx-runtime.production.js
@@ -232,9 +231,9 @@ var __webpack_modules__ = {
                 props: maybeKey
             };
         }
-        exports1.jsx = jsxProd;
+        exports.jsx = jsxProd;
     },
-    "../../node_modules/react/cjs/react.development.js": function(module, exports1, __webpack_require__) {
+    "../../node_modules/react/cjs/react.development.js": function(module, exports, __webpack_require__) {
         module = __webpack_require__.nmd(module);
         /**
  * @license React
@@ -727,17 +726,17 @@ var __webpack_modules__ = {
                     return children;
                 }
             };
-            exports1.Activity = REACT_ACTIVITY_TYPE;
-            exports1.Children = fnName;
-            exports1.Component = Component;
-            exports1.Fragment = REACT_FRAGMENT_TYPE;
-            exports1.Profiler = REACT_PROFILER_TYPE;
-            exports1.PureComponent = PureComponent;
-            exports1.StrictMode = REACT_STRICT_MODE_TYPE;
-            exports1.Suspense = REACT_SUSPENSE_TYPE;
-            exports1.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = ReactSharedInternals;
-            exports1.__COMPILER_RUNTIME = deprecatedAPIs;
-            exports1.act = function(callback) {
+            exports.Activity = REACT_ACTIVITY_TYPE;
+            exports.Children = fnName;
+            exports.Component = Component;
+            exports.Fragment = REACT_FRAGMENT_TYPE;
+            exports.Profiler = REACT_PROFILER_TYPE;
+            exports.PureComponent = PureComponent;
+            exports.StrictMode = REACT_STRICT_MODE_TYPE;
+            exports.Suspense = REACT_SUSPENSE_TYPE;
+            exports.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = ReactSharedInternals;
+            exports.__COMPILER_RUNTIME = deprecatedAPIs;
+            exports.act = function(callback) {
                 var prevActQueue = ReactSharedInternals.actQueue, prevActScopeDepth = actScopeDepth;
                 actScopeDepth++;
                 var queue = ReactSharedInternals.actQueue = null !== prevActQueue ? prevActQueue : [], didAwaitActCall = !1;
@@ -793,19 +792,19 @@ var __webpack_modules__ = {
                     }
                 };
             };
-            exports1.cache = function(fn) {
+            exports.cache = function(fn) {
                 return function() {
                     return fn.apply(null, arguments);
                 };
             };
-            exports1.cacheSignal = function() {
+            exports.cacheSignal = function() {
                 return null;
             };
-            exports1.captureOwnerStack = function() {
+            exports.captureOwnerStack = function() {
                 var getCurrentStack = ReactSharedInternals.getCurrentStack;
                 return null === getCurrentStack ? null : getCurrentStack();
             };
-            exports1.cloneElement = function(element, config, children) {
+            exports.cloneElement = function(element, config, children) {
                 if (null == element) throw Error("The argument must be a React element, but you passed " + element + ".");
                 var props = assign({}, element.props), key = element.key, owner = element._owner;
                 if (null != config) {
@@ -832,7 +831,7 @@ var __webpack_modules__ = {
                 for(key = 2; key < arguments.length; key++)validateChildKeys(arguments[key]);
                 return props;
             };
-            exports1.createContext = function(defaultValue) {
+            exports.createContext = function(defaultValue) {
                 defaultValue = {
                     $$typeof: REACT_CONTEXT_TYPE,
                     _currentValue: defaultValue,
@@ -850,7 +849,7 @@ var __webpack_modules__ = {
                 defaultValue._currentRenderer2 = null;
                 return defaultValue;
             };
-            exports1.createElement = function(type, config, children) {
+            exports.createElement = function(type, config, children) {
                 for(var i = 2; i < arguments.length; i++)validateChildKeys(arguments[i]);
                 i = {};
                 var key = null;
@@ -867,14 +866,14 @@ var __webpack_modules__ = {
                 var propName = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
                 return ReactElement(type, key, i, getOwner(), propName ? Error("react-stack-top-frame") : unknownOwnerDebugStack, propName ? createTask(getTaskName(type)) : unknownOwnerDebugTask);
             };
-            exports1.createRef = function() {
+            exports.createRef = function() {
                 var refObject = {
                     current: null
                 };
                 Object.seal(refObject);
                 return refObject;
             };
-            exports1.forwardRef = function(render) {
+            exports.forwardRef = function(render) {
                 null != render && render.$$typeof === REACT_MEMO_TYPE ? console.error("forwardRef requires a render function but received a `memo` component. Instead of forwardRef(memo(...)), use memo(forwardRef(...)).") : "function" != typeof render ? console.error("forwardRef requires a render function but was given %s.", null === render ? "null" : typeof render) : 0 !== render.length && 2 !== render.length && console.error("forwardRef render functions accept exactly two parameters: props and ref. %s", 1 === render.length ? "Did you forget to use the ref parameter?" : "Any additional parameter will be undefined.");
                 null != render && null != render.defaultProps && console.error("forwardRef render functions do not support defaultProps. Did you accidentally pass a React component?");
                 var elementType = {
@@ -896,8 +895,8 @@ var __webpack_modules__ = {
                 });
                 return elementType;
             };
-            exports1.isValidElement = isValidElement;
-            exports1.lazy = function(ctor) {
+            exports.isValidElement = isValidElement;
+            exports.lazy = function(ctor) {
                 ctor = {
                     _status: -1,
                     _result: ctor
@@ -923,7 +922,7 @@ var __webpack_modules__ = {
                 ];
                 return lazyType;
             };
-            exports1.memo = function(type, compare) {
+            exports.memo = function(type, compare) {
                 null == type && console.error("memo: The first argument must be a component. Instead received: %s", null === type ? "null" : typeof type);
                 compare = {
                     $$typeof: REACT_MEMO_TYPE,
@@ -946,7 +945,7 @@ var __webpack_modules__ = {
                 });
                 return compare;
             };
-            exports1.startTransition = function(scope) {
+            exports.startTransition = function(scope) {
                 var prevTransition = ReactSharedInternals.T, currentTransition = {};
                 currentTransition._updatedFibers = new Set();
                 ReactSharedInternals.T = currentTransition;
@@ -960,76 +959,76 @@ var __webpack_modules__ = {
                     null === prevTransition && currentTransition._updatedFibers && (scope = currentTransition._updatedFibers.size, currentTransition._updatedFibers.clear(), 10 < scope && console.warn("Detected a large number of updates inside startTransition. If this is due to a subscription please re-write it to use React provided hooks. Otherwise concurrent mode guarantees are off the table.")), null !== prevTransition && null !== currentTransition.types && (null !== prevTransition.types && prevTransition.types !== currentTransition.types && console.error("We expected inner Transitions to have transferred the outer types set and that you cannot add to the outer Transition while inside the inner.This is a bug in React."), prevTransition.types = currentTransition.types), ReactSharedInternals.T = prevTransition;
                 }
             };
-            exports1.unstable_useCacheRefresh = function() {
+            exports.unstable_useCacheRefresh = function() {
                 return resolveDispatcher().useCacheRefresh();
             };
-            exports1.use = function(usable) {
+            exports.use = function(usable) {
                 return resolveDispatcher().use(usable);
             };
-            exports1.useActionState = function(action, initialState, permalink) {
+            exports.useActionState = function(action, initialState, permalink) {
                 return resolveDispatcher().useActionState(action, initialState, permalink);
             };
-            exports1.useCallback = function(callback, deps) {
+            exports.useCallback = function(callback, deps) {
                 return resolveDispatcher().useCallback(callback, deps);
             };
-            exports1.useContext = function(Context) {
+            exports.useContext = function(Context) {
                 var dispatcher = resolveDispatcher();
                 Context.$$typeof === REACT_CONSUMER_TYPE && console.error("Calling useContext(Context.Consumer) is not supported and will cause bugs. Did you mean to call useContext(Context) instead?");
                 return dispatcher.useContext(Context);
             };
-            exports1.useDebugValue = function(value, formatterFn) {
+            exports.useDebugValue = function(value, formatterFn) {
                 return resolveDispatcher().useDebugValue(value, formatterFn);
             };
-            exports1.useDeferredValue = function(value, initialValue) {
+            exports.useDeferredValue = function(value, initialValue) {
                 return resolveDispatcher().useDeferredValue(value, initialValue);
             };
-            exports1.useEffect = function(create, deps) {
+            exports.useEffect = function(create, deps) {
                 null == create && console.warn("React Hook useEffect requires an effect callback. Did you forget to pass a callback to the hook?");
                 return resolveDispatcher().useEffect(create, deps);
             };
-            exports1.useEffectEvent = function(callback) {
+            exports.useEffectEvent = function(callback) {
                 return resolveDispatcher().useEffectEvent(callback);
             };
-            exports1.useId = function() {
+            exports.useId = function() {
                 return resolveDispatcher().useId();
             };
-            exports1.useImperativeHandle = function(ref, create, deps) {
+            exports.useImperativeHandle = function(ref, create, deps) {
                 return resolveDispatcher().useImperativeHandle(ref, create, deps);
             };
-            exports1.useInsertionEffect = function(create, deps) {
+            exports.useInsertionEffect = function(create, deps) {
                 null == create && console.warn("React Hook useInsertionEffect requires an effect callback. Did you forget to pass a callback to the hook?");
                 return resolveDispatcher().useInsertionEffect(create, deps);
             };
-            exports1.useLayoutEffect = function(create, deps) {
+            exports.useLayoutEffect = function(create, deps) {
                 null == create && console.warn("React Hook useLayoutEffect requires an effect callback. Did you forget to pass a callback to the hook?");
                 return resolveDispatcher().useLayoutEffect(create, deps);
             };
-            exports1.useMemo = function(create, deps) {
+            exports.useMemo = function(create, deps) {
                 return resolveDispatcher().useMemo(create, deps);
             };
-            exports1.useOptimistic = function(passthrough, reducer) {
+            exports.useOptimistic = function(passthrough, reducer) {
                 return resolveDispatcher().useOptimistic(passthrough, reducer);
             };
-            exports1.useReducer = function(reducer, initialArg, init) {
+            exports.useReducer = function(reducer, initialArg, init) {
                 return resolveDispatcher().useReducer(reducer, initialArg, init);
             };
-            exports1.useRef = function(initialValue) {
+            exports.useRef = function(initialValue) {
                 return resolveDispatcher().useRef(initialValue);
             };
-            exports1.useState = function(initialState) {
+            exports.useState = function(initialState) {
                 return resolveDispatcher().useState(initialState);
             };
-            exports1.useSyncExternalStore = function(subscribe, getSnapshot, getServerSnapshot) {
+            exports.useSyncExternalStore = function(subscribe, getSnapshot, getServerSnapshot) {
                 return resolveDispatcher().useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
             };
-            exports1.useTransition = function() {
+            exports.useTransition = function() {
                 return resolveDispatcher().useTransition();
             };
-            exports1.version = "19.2.0";
+            exports.version = "19.2.0";
             "undefined" != typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" == typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(Error());
         }();
     },
-    "../../node_modules/react/cjs/react.production.js": function(__unused_webpack_module, exports1) {
+    "../../node_modules/react/cjs/react.production.js": function(__unused_webpack_module, exports) {
         /**
  * @license React
  * react.production.js
@@ -1227,30 +1226,30 @@ var __webpack_modules__ = {
                 return children;
             }
         };
-        exports1.Activity = REACT_ACTIVITY_TYPE;
-        exports1.Children = Children;
-        exports1.Component = Component;
-        exports1.Fragment = REACT_FRAGMENT_TYPE;
-        exports1.Profiler = REACT_PROFILER_TYPE;
-        exports1.PureComponent = PureComponent;
-        exports1.StrictMode = REACT_STRICT_MODE_TYPE;
-        exports1.Suspense = REACT_SUSPENSE_TYPE;
-        exports1.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = ReactSharedInternals;
-        exports1.__COMPILER_RUNTIME = {
+        exports.Activity = REACT_ACTIVITY_TYPE;
+        exports.Children = Children;
+        exports.Component = Component;
+        exports.Fragment = REACT_FRAGMENT_TYPE;
+        exports.Profiler = REACT_PROFILER_TYPE;
+        exports.PureComponent = PureComponent;
+        exports.StrictMode = REACT_STRICT_MODE_TYPE;
+        exports.Suspense = REACT_SUSPENSE_TYPE;
+        exports.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = ReactSharedInternals;
+        exports.__COMPILER_RUNTIME = {
             __proto__: null,
             c: function(size) {
                 return ReactSharedInternals.H.useMemoCache(size);
             }
         };
-        exports1.cache = function(fn) {
+        exports.cache = function(fn) {
             return function() {
                 return fn.apply(null, arguments);
             };
         };
-        exports1.cacheSignal = function() {
+        exports.cacheSignal = function() {
             return null;
         };
-        exports1.cloneElement = function(element, config, children) {
+        exports.cloneElement = function(element, config, children) {
             if (null == element) throw Error("The argument must be a React element, but you passed " + element + ".");
             var props = assign({}, element.props), key = element.key;
             if (null != config) for(propName in void 0 !== config.key && (key = "" + config.key), config)hasOwnProperty.call(config, propName) && "key" !== propName && "__self" !== propName && "__source" !== propName && ("ref" !== propName || void 0 !== config.ref) && (props[propName] = config[propName]);
@@ -1262,7 +1261,7 @@ var __webpack_modules__ = {
             }
             return ReactElement(element.type, key, props);
         };
-        exports1.createContext = function(defaultValue) {
+        exports.createContext = function(defaultValue) {
             defaultValue = {
                 $$typeof: REACT_CONTEXT_TYPE,
                 _currentValue: defaultValue,
@@ -1278,7 +1277,7 @@ var __webpack_modules__ = {
             };
             return defaultValue;
         };
-        exports1.createElement = function(type, config, children) {
+        exports.createElement = function(type, config, children) {
             var propName, props = {}, key = null;
             if (null != config) for(propName in void 0 !== config.key && (key = "" + config.key), config)hasOwnProperty.call(config, propName) && "key" !== propName && "__self" !== propName && "__source" !== propName && (props[propName] = config[propName]);
             var childrenLength = arguments.length - 2;
@@ -1290,19 +1289,19 @@ var __webpack_modules__ = {
             if (type && type.defaultProps) for(propName in childrenLength = type.defaultProps)void 0 === props[propName] && (props[propName] = childrenLength[propName]);
             return ReactElement(type, key, props);
         };
-        exports1.createRef = function() {
+        exports.createRef = function() {
             return {
                 current: null
             };
         };
-        exports1.forwardRef = function(render) {
+        exports.forwardRef = function(render) {
             return {
                 $$typeof: REACT_FORWARD_REF_TYPE,
                 render: render
             };
         };
-        exports1.isValidElement = isValidElement;
-        exports1.lazy = function(ctor) {
+        exports.isValidElement = isValidElement;
+        exports.lazy = function(ctor) {
             return {
                 $$typeof: REACT_LAZY_TYPE,
                 _payload: {
@@ -1312,14 +1311,14 @@ var __webpack_modules__ = {
                 _init: lazyInitializer
             };
         };
-        exports1.memo = function(type, compare) {
+        exports.memo = function(type, compare) {
             return {
                 $$typeof: REACT_MEMO_TYPE,
                 type: type,
                 compare: void 0 === compare ? null : compare
             };
         };
-        exports1.startTransition = function(scope) {
+        exports.startTransition = function(scope) {
             var prevTransition = ReactSharedInternals.T, currentTransition = {};
             ReactSharedInternals.T = currentTransition;
             try {
@@ -1332,65 +1331,65 @@ var __webpack_modules__ = {
                 null !== prevTransition && null !== currentTransition.types && (prevTransition.types = currentTransition.types), ReactSharedInternals.T = prevTransition;
             }
         };
-        exports1.unstable_useCacheRefresh = function() {
+        exports.unstable_useCacheRefresh = function() {
             return ReactSharedInternals.H.useCacheRefresh();
         };
-        exports1.use = function(usable) {
+        exports.use = function(usable) {
             return ReactSharedInternals.H.use(usable);
         };
-        exports1.useActionState = function(action, initialState, permalink) {
+        exports.useActionState = function(action, initialState, permalink) {
             return ReactSharedInternals.H.useActionState(action, initialState, permalink);
         };
-        exports1.useCallback = function(callback, deps) {
+        exports.useCallback = function(callback, deps) {
             return ReactSharedInternals.H.useCallback(callback, deps);
         };
-        exports1.useContext = function(Context) {
+        exports.useContext = function(Context) {
             return ReactSharedInternals.H.useContext(Context);
         };
-        exports1.useDebugValue = function() {};
-        exports1.useDeferredValue = function(value, initialValue) {
+        exports.useDebugValue = function() {};
+        exports.useDeferredValue = function(value, initialValue) {
             return ReactSharedInternals.H.useDeferredValue(value, initialValue);
         };
-        exports1.useEffect = function(create, deps) {
+        exports.useEffect = function(create, deps) {
             return ReactSharedInternals.H.useEffect(create, deps);
         };
-        exports1.useEffectEvent = function(callback) {
+        exports.useEffectEvent = function(callback) {
             return ReactSharedInternals.H.useEffectEvent(callback);
         };
-        exports1.useId = function() {
+        exports.useId = function() {
             return ReactSharedInternals.H.useId();
         };
-        exports1.useImperativeHandle = function(ref, create, deps) {
+        exports.useImperativeHandle = function(ref, create, deps) {
             return ReactSharedInternals.H.useImperativeHandle(ref, create, deps);
         };
-        exports1.useInsertionEffect = function(create, deps) {
+        exports.useInsertionEffect = function(create, deps) {
             return ReactSharedInternals.H.useInsertionEffect(create, deps);
         };
-        exports1.useLayoutEffect = function(create, deps) {
+        exports.useLayoutEffect = function(create, deps) {
             return ReactSharedInternals.H.useLayoutEffect(create, deps);
         };
-        exports1.useMemo = function(create, deps) {
+        exports.useMemo = function(create, deps) {
             return ReactSharedInternals.H.useMemo(create, deps);
         };
-        exports1.useOptimistic = function(passthrough, reducer) {
+        exports.useOptimistic = function(passthrough, reducer) {
             return ReactSharedInternals.H.useOptimistic(passthrough, reducer);
         };
-        exports1.useReducer = function(reducer, initialArg, init) {
+        exports.useReducer = function(reducer, initialArg, init) {
             return ReactSharedInternals.H.useReducer(reducer, initialArg, init);
         };
-        exports1.useRef = function(initialValue) {
+        exports.useRef = function(initialValue) {
             return ReactSharedInternals.H.useRef(initialValue);
         };
-        exports1.useState = function(initialState) {
+        exports.useState = function(initialState) {
             return ReactSharedInternals.H.useState(initialState);
         };
-        exports1.useSyncExternalStore = function(subscribe, getSnapshot, getServerSnapshot) {
+        exports.useSyncExternalStore = function(subscribe, getSnapshot, getServerSnapshot) {
             return ReactSharedInternals.H.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
         };
-        exports1.useTransition = function() {
+        exports.useTransition = function() {
             return ReactSharedInternals.H.useTransition();
         };
-        exports1.version = "19.2.0";
+        exports.version = "19.2.0";
     },
     "../../node_modules/react/index.js": function(module, __unused_webpack_exports, __webpack_require__) {
         if ('production' === process.env.NODE_ENV) module.exports = __webpack_require__("../../node_modules/react/cjs/react.production.js");
@@ -1415,50 +1414,16 @@ function __webpack_require__(moduleId) {
     return module.exports;
 }
 (()=>{
-    __webpack_require__.d = (exports1, definition)=>{
-        for(var key in definition)if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports1, key)) Object.defineProperty(exports1, key, {
-            enumerable: true,
-            get: definition[key]
-        });
-    };
-})();
-(()=>{
-    __webpack_require__.o = (obj, prop)=>Object.prototype.hasOwnProperty.call(obj, prop);
-})();
-(()=>{
-    __webpack_require__.r = (exports1)=>{
-        if ('undefined' != typeof Symbol && Symbol.toStringTag) Object.defineProperty(exports1, Symbol.toStringTag, {
-            value: 'Module'
-        });
-        Object.defineProperty(exports1, '__esModule', {
-            value: true
-        });
-    };
-})();
-(()=>{
     __webpack_require__.nmd = (module)=>{
         module.paths = [];
         if (!module.children) module.children = [];
         return module;
     };
 })();
-var __webpack_exports__ = {};
-(()=>{
-    __webpack_require__.r(__webpack_exports__);
-    __webpack_require__.d(__webpack_exports__, {
-        Navbar: ()=>src_Navbar
+var jsx_runtime = __webpack_require__("../../node_modules/react/jsx-runtime.js");
+__webpack_require__("../../node_modules/react/index.js");
+const Navbar = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("h1", {
+        children: "navbar mf original"
     });
-    var jsx_runtime = __webpack_require__("../../node_modules/react/jsx-runtime.js");
-    __webpack_require__("../../node_modules/react/index.js");
-    const Navbar = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("h1", {
-            children: "navbar mf"
-        });
-    const src_Navbar = Navbar;
-})();
-exports.Navbar = __webpack_exports__.Navbar;
-for(var __webpack_i__ in __webpack_exports__)if (-1 === [
-    "Navbar"
-].indexOf(__webpack_i__)) exports[__webpack_i__] = __webpack_exports__[__webpack_i__];
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
+const src_Navbar = Navbar;
+export { src_Navbar as Navbar };

@@ -1,7 +1,6 @@
 {
   "name": "@sammanadh/navbar",
   "version": "0.0.1",
-  "type": "module",
   "main": "lib-dist/index.cjs",
   "module": "lib-dist/index.js",
   "types": "./lib-dist/index.d.ts",
