@@ -1,6 +1,5 @@
 /*! For license information please see index.mjs.LICENSE.txt */
 var __webpack_modules__ = {
-    "./src/lib/index.css": function() {},
     "../../node_modules/react/cjs/react-jsx-runtime.development.js": function(__unused_webpack_module, exports, __webpack_require__) {
         /**
  * @license React
@@ -1426,7 +1425,6 @@ function __webpack_require__(moduleId) {
         return module;
     };
 })();
-__webpack_require__("./src/lib/index.css");
 var jsx_runtime = __webpack_require__("../../node_modules/react/jsx-runtime.js");
 __webpack_require__("../../node_modules/react/index.js");
 const Navbar = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("header", {

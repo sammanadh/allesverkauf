@@ -19,8 +19,7 @@ export default defineConfig({
     },
   },
   output: {
-    distPath: "./lib-dist",
-    injectStyles: false
+    distPath: "./lib-dist"
   },
   plugins: [pluginReact()],
 });

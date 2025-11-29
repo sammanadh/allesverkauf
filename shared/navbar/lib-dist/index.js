@@ -1,8 +1,7 @@
 /*! For license information please see index.js.LICENSE.txt */
+"use strict";
 var __webpack_modules__ = {
-    "./src/lib/index.css": function() {},
     "../../node_modules/react/cjs/react-jsx-runtime.development.js": function(__unused_webpack_module, exports1, __webpack_require__) {
-        "use strict";
         /**
  * @license React
  * react-jsx-runtime.development.js
@@ -210,7 +209,6 @@ var __webpack_modules__ = {
         }();
     },
     "../../node_modules/react/cjs/react-jsx-runtime.production.js": function(__unused_webpack_module, exports1) {
-        "use strict";
         /**
  * @license React
  * react-jsx-runtime.production.js
@@ -242,7 +240,6 @@ var __webpack_modules__ = {
         exports1.jsxs = jsxProd;
     },
     "../../node_modules/react/cjs/react.development.js": function(module, exports1, __webpack_require__) {
-        "use strict";
         module = __webpack_require__.nmd(module);
         /**
  * @license React
@@ -1038,7 +1035,6 @@ var __webpack_modules__ = {
         }();
     },
     "../../node_modules/react/cjs/react.production.js": function(__unused_webpack_module, exports1) {
-        "use strict";
         /**
  * @license React
  * react.production.js
@@ -1402,12 +1398,10 @@ var __webpack_modules__ = {
         exports1.version = "19.2.0";
     },
     "../../node_modules/react/index.js": function(module, __unused_webpack_exports, __webpack_require__) {
-        "use strict";
         if ('production' === process.env.NODE_ENV) module.exports = __webpack_require__("../../node_modules/react/cjs/react.production.js");
         else module.exports = __webpack_require__("../../node_modules/react/cjs/react.development.js");
     },
     "../../node_modules/react/jsx-runtime.js": function(module, __unused_webpack_exports, __webpack_require__) {
-        "use strict";
         if ('production' === process.env.NODE_ENV) module.exports = __webpack_require__("../../node_modules/react/cjs/react-jsx-runtime.production.js");
         else module.exports = __webpack_require__("../../node_modules/react/cjs/react-jsx-runtime.development.js");
     }
@@ -1455,12 +1449,10 @@ function __webpack_require__(moduleId) {
 })();
 var __webpack_exports__ = {};
 (()=>{
-    "use strict";
     __webpack_require__.r(__webpack_exports__);
     __webpack_require__.d(__webpack_exports__, {
         Navbar: ()=>src_Navbar
     });
-    __webpack_require__("./src/lib/index.css");
     var jsx_runtime = __webpack_require__("../../node_modules/react/jsx-runtime.js");
     __webpack_require__("../../node_modules/react/index.js");
     const Navbar = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("header", {
