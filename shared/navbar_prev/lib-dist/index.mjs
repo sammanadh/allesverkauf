@@ -1,6 +1,5 @@
 /*! For license information please see index.mjs.LICENSE.txt */
 var __webpack_modules__ = {
-    "./src/components/ProviderComponent.css": function() {},
     "../../node_modules/react/cjs/react-jsx-runtime.development.js": function(__unused_webpack_module, exports, __webpack_require__) {
         /**
  * @license React
@@ -202,6 +201,10 @@ var __webpack_modules__ = {
                 var trackActualOwner = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
                 return jsxDEVImpl(type, config, maybeKey, !1, trackActualOwner ? Error("react-stack-top-frame") : unknownOwnerDebugStack, trackActualOwner ? createTask(getTaskName(type)) : unknownOwnerDebugTask);
             };
+            exports.jsxs = function(type, config, maybeKey) {
+                var trackActualOwner = 1e4 > ReactSharedInternals.recentlyCreatedOwnerStacks++;
+                return jsxDEVImpl(type, config, maybeKey, !0, trackActualOwner ? Error("react-stack-top-frame") : unknownOwnerDebugStack, trackActualOwner ? createTask(getTaskName(type)) : unknownOwnerDebugTask);
+            };
         }();
     },
     "../../node_modules/react/cjs/react-jsx-runtime.production.js": function(__unused_webpack_module, exports) {
@@ -233,6 +236,7 @@ var __webpack_modules__ = {
             };
         }
         exports.jsx = jsxProd;
+        exports.jsxs = jsxProd;
     },
     "../../node_modules/react/cjs/react.development.js": function(module, exports, __webpack_require__) {
         module = __webpack_require__.nmd(module);
@@ -1423,13 +1427,73 @@ function __webpack_require__(moduleId) {
 })();
 var jsx_runtime = __webpack_require__("../../node_modules/react/jsx-runtime.js");
 __webpack_require__("../../node_modules/react/index.js");
-__webpack_require__("./src/components/ProviderComponent.css");
-const Provider = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("div", {
-        className: "container",
-        children: /*#__PURE__*/ (0, jsx_runtime.jsx)("h1", {
-            className: "text-3xl font-bold underline",
-            children: "Provider is here(Updated)"
+const Navbar = ()=>/*#__PURE__*/ (0, jsx_runtime.jsx)("header", {
+        className: "bg-gray-900",
+        children: /*#__PURE__*/ (0, jsx_runtime.jsxs)("nav", {
+            "aria-label": "Global",
+            className: "mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8",
+            children: [
+                /*#__PURE__*/ (0, jsx_runtime.jsx)("div", {
+                    className: "flex lg:flex-1",
+                    children: /*#__PURE__*/ (0, jsx_runtime.jsxs)("a", {
+                        href: "#",
+                        className: "-m-1.5 p-1.5",
+                        children: [
+                            /*#__PURE__*/ (0, jsx_runtime.jsx)("span", {
+                                className: "sr-only",
+                                children: "Thesis Project"
+                            }),
+                            /*#__PURE__*/ (0, jsx_runtime.jsx)("img", {
+                                src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500",
+                                alt: "",
+                                className: "h-8 w-auto"
+                            })
+                        ]
+                    })
+                }),
+                /*#__PURE__*/ (0, jsx_runtime.jsx)("div", {
+                    className: "flex lg:hidden",
+                    children: /*#__PURE__*/ (0, jsx_runtime.jsxs)("button", {
+                        type: "button",
+                        className: "-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400",
+                        children: [
+                            /*#__PURE__*/ (0, jsx_runtime.jsx)("span", {
+                                className: "sr-only",
+                                children: "Open main menu"
+                            }),
+                            /*#__PURE__*/ (0, jsx_runtime.jsx)("svg", {
+                                viewBox: "0 0 24 24",
+                                fill: "none",
+                                stroke: "currentColor",
+                                "stroke-width": "1.5",
+                                "data-slot": "icon",
+                                "aria-hidden": "true",
+                                className: "size-6",
+                                children: /*#__PURE__*/ (0, jsx_runtime.jsx)("path", {
+                                    d: "M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5",
+                                    "stroke-linecap": "round",
+                                    "stroke-linejoin": "round"
+                                })
+                            })
+                        ]
+                    })
+                }),
+                /*#__PURE__*/ (0, jsx_runtime.jsx)("div", {
+                    className: "hidden lg:flex lg:flex-1 lg:justify-end",
+                    children: /*#__PURE__*/ (0, jsx_runtime.jsxs)("a", {
+                        href: "#",
+                        className: "text-sm/6 font-semibold text-white",
+                        children: [
+                            "Log in ",
+                            /*#__PURE__*/ (0, jsx_runtime.jsx)("span", {
+                                "aria-hidden": "true",
+                                children: "→"
+                            })
+                        ]
+                    })
+                })
+            ]
         })
     });
-const components_ProviderComponent = Provider;
-export { components_ProviderComponent as Navbar };
+const src_Navbar = Navbar;
+export { src_Navbar as Navbar };

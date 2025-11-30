@@ -1,1 +1,1 @@
-export { default as Navbar } from "../Navbar.tsx";
+export { default as Navbar } from "../components/ProviderComponent";

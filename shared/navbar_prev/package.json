@@ -1,7 +1,6 @@
 {
   "name": "@sammanadh/navbar",
-  "private": true,
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "lib-dist/index.cjs",
   "module": "lib-dist/index.js",
   "types": "./lib-dist/index.d.ts",
@@ -21,9 +20,10 @@
     "lib-dist"
   ],
   "scripts": {
-    "dev": "rsbuild dev --open --config rsbuild.config.app.ts",
-    "build": "rsbuild build --config rsbuild.config.app.ts",
-    "preview": "rsbuild preview --config rsbuild.config.app.ts",
-    "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts"
+    "build": "NODE_ENV=production rspack build --config rspack.config.app.ts",
+    "build:dev": "NODE_ENV=development rspack build --config rspack.config.app.ts",
+    "build:start": "cd dist && rspack serve --config rspack.config.app.ts",
+    "build:lib": "NODE_ENV=production rslib build --config rspack.config.lib.ts",
+    "start": "NODE_ENV=development rspack serve --config rspack.config.app.ts"
   }
 }
