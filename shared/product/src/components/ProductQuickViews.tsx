@@ -1,55 +1,150 @@
+{/* CITATION_START CITATION_LINK: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-quickviews */ }
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
+import { Product } from "../types/product.ts";
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import { StarIcon } from '@heroicons/react/20/solid'
 
 type Props = {
+  product: Product;
   open: boolean;
   onClose: () => void;
 }
 
-export default function ProdductQuickViews({ open, onClose }: Props) {
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(' ')
+}
+
+export default function ProdductQuickViews({ product, open, onClose }: Props) {
 
   return (
     <div>
       <Dialog open={open} onClose={onClose} className="relative z-10">
         <DialogBackdrop
           transition
-          className="fixed inset-0 bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in"
+          className="fixed inset-0 hidden bg-gray-500/75 transition-opacity data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in md:block"
         />
 
         <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+          <div className="flex min-h-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
             <DialogPanel
               transition
-              className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-3xl data-closed:sm:translate-y-0 data-closed:sm:scale-95"
-
+              className="flex w-full transform text-left text-base transition data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in md:my-8 md:max-w-2xl md:px-4 data-closed:md:translate-y-0 data-closed:md:scale-95 lg:max-w-4xl"
             >
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="grid grid-cols-3">
-                  <div className="col-span-1">
-                    <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-quick-preview-02-detail.jpg" alt="Two each of gray, white, and black shirts arranged on table." className="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5" />
-                  </div>
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">Basic Tee 6-Pack</h2>
-                    <div className="mt-2">
-                      <p className="text-2xl text-gray-900">$192</p>
-                    </div>
+              <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pt-14 pb-8 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                <button
+                  type="button"
+                  onClick={() => onClose()}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
+                >
+                  <span className="sr-only">Close</span>
+                  <XMarkIcon aria-hidden="true" className="size-6" />
+                </button>
+
+                <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
+                  <img
+                    src={product.img}
+                    className="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5"
+                  />
+                  <div className="sm:col-span-8 lg:col-span-7">
+                    <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.name}</h2>
+
+                    <section aria-labelledby="information-heading" className="mt-2">
+                      <h3 id="information-heading" className="sr-only">
+                        Product information
+                      </h3>
+
+                      <p className="text-2xl text-gray-900">{product.price}</p>
+
+                      {/* Reviews */}
+                      <div className="mt-6">
+                        <h4 className="sr-only">Reviews</h4>
+                        <div className="flex items-center">
+                          <div className="flex items-center">
+                            {[0, 1, 2, 3, 4].map((rating) => (
+                              <StarIcon
+                                key={rating}
+                                aria-hidden="true"
+                                className={classNames(
+                                  product.rating > rating ? 'text-gray-900' : 'text-gray-200',
+                                  'size-5 shrink-0',
+                                )}
+                              />
+                            ))}
+                          </div>
+                          <p className="sr-only">{product.rating} out of 5 stars</p>
+                          <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                            {product.reviewsCount} reviews
+                          </a>
+                        </div>
+                      </div>
+                    </section>
+
+                    <section aria-labelledby="options-heading" className="mt-10">
+                      <h3 id="options-heading" className="sr-only">
+                        Product options
+                      </h3>
+
+                      <form>
+                        {/* Colors */}
+                        <fieldset aria-label="Choose a color">
+                          <legend className="text-sm font-medium text-gray-900">Color</legend>
+
+                          <div className="mt-4 flex items-center gap-x-3">
+                            <div
+                              className="flex rounded-full outline -outline-offset-1 outline-black/10"
+                            >
+                              <input
+                                name="color"
+                                type="radio"
+                                className={classNames(
+                                  product.color,
+                                  'size-8 appearance-none rounded-full forced-color-adjust-none checked:outline-2 checked:outline-offset-2 focus-visible:outline-3 focus-visible:outline-offset-3',
+                                )}
+                              />
+                            </div>
+                          </div>
+                        </fieldset>
+
+                        {/* Sizes */}
+                        <fieldset aria-label="Choose a size" className="mt-10">
+                          <div className="flex items-center justify-between">
+                            <div className="text-sm font-medium text-gray-900">Size</div>
+                            <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                              Size guide
+                            </a>
+                          </div>
+
+                          <div className="mt-2 grid grid-cols-4 gap-3">
+                            {product.sizes.map((size, idx) => (
+                              <label
+                                key={size}
+                                className="group relative flex items-center justify-center rounded-md border border-gray-300 bg-white p-3 has-checked:border-indigo-600 has-checked:bg-indigo-600 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 has-disabled:border-gray-400 has-disabled:bg-gray-200 has-disabled:opacity-25"
+                              >
+                                <input
+                                  defaultValue={size}
+                                  defaultChecked={size === product.sizes[idx]}
+                                  name="size"
+                                  type="radio"
+                                  className="absolute inset-0 appearance-none focus:outline-none disabled:cursor-not-allowed"
+                                />
+                                <span className="text-sm font-medium text-gray-900 uppercase group-has-checked:text-white">
+                                  {size}
+                                </span>
+                              </label>
+                            ))}
+                          </div>
+                        </fieldset>
+
+                        <button
+                          type="submit"
+                          className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
+                        >
+                          Add to bag
+                        </button>
+                      </form>
+                    </section>
                   </div>
                 </div>
-              </div>
-              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                <button
-                  type="button"
-                  className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
-                >
-                  Add To Bad
-                </button>
-                <button
-                  type="button"
-                  data-autofocus
-                  onClick={onClose}
-                  className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                >
-                  Cancel
-                </button>
               </div>
             </DialogPanel>
           </div>
@@ -58,3 +153,5 @@ export default function ProdductQuickViews({ open, onClose }: Props) {
     </div>
   )
 }
+
+{/* CITATION_END */ }

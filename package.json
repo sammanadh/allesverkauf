@@ -26,6 +26,7 @@
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.1.0",
     "css-loader": "^7.1.2",
+    "miragejs": "^0.1.48",
     "postcss": "^8.2.1",
     "postcss-loader": "^8.0.0",
     "react-refresh": "^0.14.0",
@@ -38,6 +39,7 @@
     "@heroicons/react": "^2.2.0",
     "@module-federation/enhanced": "^0.8.9",
     "@rslib/core": "^0.18.2",
+    "merge.js": "^0.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
