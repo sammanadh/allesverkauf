@@ -124,11 +124,8 @@ export const trendingProducts = [
     sizes: ["S", "M", "L", "XL"],
     inStock: true,
     sku: "CH-GRY-SWTR-008"
-  }
-];
-
-export const bestSellersProducts = [
-  {
+  },
+    {
     id: "clothing_009",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Basic Tee",
@@ -248,6 +245,10 @@ export const bestSellersProducts = [
     inStock: true,
     sku: "CH-GRY-SWTR-008"
   }
+];
+
+export const bestSellersProducts = [
+
 ]
 
 export const allProducts = [...trendingProducts, ...bestSellersProducts]

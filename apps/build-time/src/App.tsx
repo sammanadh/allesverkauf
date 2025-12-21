@@ -1,5 +1,5 @@
 import './App.css';
-import { Navbar } from "@sammanadh/navbar"; // Using the name defined in package.json
+import { Product } from "@sammanadh/product"; // Using the name defined in package.json
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <Navbar />
+        <Product />
       </div>
     </div>
   );

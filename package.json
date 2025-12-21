@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:n": "cd shared/navbar && npm run build:lib && cd ../../",
+    "build:p": "cd shared/product && npm run build:lib && cd ../../",
     "dev:bt": "cd apps/build-time && npm run dev",
     "dev:rt": "cd apps/run-time && npm run dev",
     "dev:n": "cd shared/navbar && npm run dev"
@@ -46,6 +47,7 @@
   "workspaces": [
     "apps/build-time",
     "apps/run-time",
-    "shared/navbar"
+    "shared/navbar",
+    "shared/product"
   ]
 }

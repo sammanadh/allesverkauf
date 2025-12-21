@@ -14,7 +14,7 @@ export default function () {
         products: bestSellersProducts,
       }))
 
-      this.get("products", (schema, request) => {
+      this.get("products", (_, request) => {
         let searchBy = request.queryParams.searchBy;
         return {
           products: allProducts.filter((product) => searchBy ? product.name.includes(searchBy as string) : true)
