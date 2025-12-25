@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from 'navbar';
+import Product from 'product';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <Navbar />
+        <Product />
       </div>
     </div>
   );

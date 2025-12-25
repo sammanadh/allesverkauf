@@ -1,7 +1,7 @@
 import { createServer } from "miragejs"
 import { trendingProducts, bestSellersProducts, allProducts } from "./data"
 
-export default function () {
+export default function() {
   createServer({
     routes() {
       this.namespace = "api"
@@ -20,6 +20,13 @@ export default function () {
           products: allProducts.filter((product) => searchBy ? product.name.includes(searchBy as string) : true)
         }
       })
+
+      // to allow request that are not meant for this api
+      this.namespace = "";
+      this.passthrough((req) => {
+        const isApiReq = req.url.includes("/api/");
+        return !isApiReq;
+      });
     },
   })
 }
