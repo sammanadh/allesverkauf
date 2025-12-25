@@ -67,6 +67,7 @@ const ProductList: React.FC = () => {
     fetch("/api/products/best_sellers")
       .then((res) => res.json())
       .then((json) => {
+        console.log("lll", json.products)
         setBestSellersProducts(json.products);
       }).catch(err => {
         console.log("Something is wrong!!")

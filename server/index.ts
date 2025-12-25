@@ -1,5 +1,5 @@
 import { createServer } from "miragejs"
-import { trendingProducts, bestSellersProducts, allProducts } from "./mockData"
+import { trendingProducts, bestSellersProducts, allProducts } from "./data"
 
 export default function () {
   createServer({
