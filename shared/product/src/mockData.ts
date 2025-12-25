@@ -6,7 +6,7 @@
  */
 export const trendingProducts = [
   {
-    id: "clothing_001",
+    // id: "clothing_001",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Basic Tee",
     color: "White",
@@ -21,7 +21,7 @@ export const trendingProducts = [
     sku: "ET-WHT-TEE-001"
   },
   {
-    id: "clothing_002",
+    // id: "clothing_002",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg",
     name: "Relaxed Fit Hoodie",
     color: "Charcoal",
@@ -36,7 +36,7 @@ export const trendingProducts = [
     sku: "NL-CHR-HOOD-002"
   },
   {
-    id: "clothing_003",
+    // id: "clothing_003",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg",
     name: "Slim Denim Jeans",
     color: "Indigo",
@@ -51,7 +51,7 @@ export const trendingProducts = [
     sku: "BF-IND-JEAN-003"
   },
   {
-    id: "clothing_004",
+    // id: "clothing_004",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Everyday Chino Pants",
     color: "Khaki",
@@ -66,7 +66,7 @@ export const trendingProducts = [
     sku: "UT-KHK-CHINO-004"
   },
   {
-    id: "clothing_005",
+    // id: "clothing_005",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Lightweight Jacket",
     color: "Olive",
@@ -81,7 +81,7 @@ export const trendingProducts = [
     sku: "FF-OLV-JACK-005"
   },
   {
-    id: "clothing_006",
+    // id: "clothing_006",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Classic Button-Up Shirt",
     color: "Light Blue",
@@ -96,7 +96,7 @@ export const trendingProducts = [
     sku: "HW-LBL-SHIRT-006"
   },
   {
-    id: "clothing_007",
+    // id: "clothing_007",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Athletic Joggers",
     color: "Black",
@@ -111,7 +111,7 @@ export const trendingProducts = [
     sku: "ML-BLK-JOG-007"
   },
   {
-    id: "clothing_008",
+    // id: "clothing_008",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Wool Blend Sweater",
     color: "Heather Gray",
@@ -126,7 +126,7 @@ export const trendingProducts = [
     sku: "CH-GRY-SWTR-008"
   },
     {
-    id: "clothing_009",
+    // id: "clothing_009",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Basic Tee",
     color: "White",
@@ -141,7 +141,7 @@ export const trendingProducts = [
     sku: "ET-WHT-TEE-001"
   },
   {
-    id: "clothing_010",
+    // id: "clothing_010",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg",
     name: "Relaxed Fit Hoodie",
     color: "Charcoal",
@@ -156,7 +156,7 @@ export const trendingProducts = [
     sku: "NL-CHR-HOOD-002"
   },
   {
-    id: "clothing_011",
+    // id: "clothing_011",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg",
     name: "Slim Denim Jeans",
     color: "Indigo",
@@ -171,7 +171,7 @@ export const trendingProducts = [
     sku: "BF-IND-JEAN-003"
   },
   {
-    id: "clothing_012",
+    // id: "clothing_012",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Everyday Chino Pants",
     color: "Khaki",
@@ -186,7 +186,7 @@ export const trendingProducts = [
     sku: "UT-KHK-CHINO-004"
   },
   {
-    id: "clothing_013",
+    // id: "clothing_013",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Lightweight Jacket",
     color: "Olive",
@@ -201,7 +201,7 @@ export const trendingProducts = [
     sku: "FF-OLV-JACK-005"
   },
   {
-    id: "clothing_014",
+    // id: "clothing_014",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Classic Button-Up Shirt",
     color: "Light Blue",
@@ -216,7 +216,7 @@ export const trendingProducts = [
     sku: "HW-LBL-SHIRT-006"
   },
   {
-    id: "clothing_015",
+    // id: "clothing_015",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Athletic Joggers",
     color: "Black",
@@ -231,7 +231,7 @@ export const trendingProducts = [
     sku: "ML-BLK-JOG-007"
   },
   {
-    id: "clothing_016",
+    // id: "clothing_016",
     img: "https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-01.jpg",
     name: "Wool Blend Sweater",
     color: "Heather Gray",

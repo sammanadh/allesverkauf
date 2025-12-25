@@ -5,6 +5,8 @@ import { Product } from "../types/product.ts";
 import TopBar from "./TopBar.tsx";
 import debounce from '../utils/debounce.ts';
 import ProductSkeleton from './ProductSkeleton.tsx';
+import { client } from "../appwrite.ts";
+// import { trendingProducts as mockedTrantrendingProducts } from "../mockData.ts";
 
 const ProductList: React.FC = () => {
   const [openQuickView, setOpenQuickView] = useState(false);
@@ -17,6 +19,27 @@ const ProductList: React.FC = () => {
   const [searchLoading, setSearchLoading] = useState(false);
   const [trendingLoading, setTrendingLoading] = useState(false);
   const [bestSellersLoading, setBestSellersLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await client.ping();
+
+        //for (let p of mockedTrantrendingProducts) {
+        // const results = await tablesDB.createRow({
+        //   databaseId: "allesverkauf",
+        //   tableId: "products",
+        //   rowId: ID.unique(),
+        //   data: p
+        // })
+        //}
+
+      } catch (err) {
+        alert("err")
+        console.log(err)
+      }
+    })()
+  }, [])
 
   useEffect(() => {
     if (searchTerm !== "") {
