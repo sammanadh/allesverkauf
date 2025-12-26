@@ -1,5 +1,5 @@
 import('./bootstrap');
 
-import server from "../../../server";
+import server from "@sammanadh/server";
 
 server();

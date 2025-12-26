@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import server from '../../../server';
+import server from '@sammanadh/server';
 
 server();
 
