@@ -1,0 +1,43 @@
+import { ShoppingBagIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+
+type TopBarParam = {
+  onSearchTermChange?: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+export default function TopBar({ onSearchTermChange }: TopBarParam) {
+  return (
+    <div className="bg-white">
+      <header className="relative bg-white">
+        <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="border-b border-gray-200">
+            <div className="flex h-16 items-center">
+              {/* Logo */}
+              <div className="ml-4 flex lg:ml-0">
+                <a href="/">
+                  <span className="sr-only">alleskaufen</span>
+                  <img
+                    alt=""
+                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
+                    className="h-8 w-auto"
+                  />
+                </a>
+              </div>
+
+              {/* Cart */}
+              <div className="ml-auto flow-root">
+                <a href="#" className="group -m-2 flex items-center p-2">
+                  <ShoppingBagIcon
+                    aria-hidden="true"
+                    className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+                  />
+                  <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                  <span className="sr-only">items in cart, view bag</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div >
+  )
+}

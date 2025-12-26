@@ -1,5 +1,6 @@
 import './App.css';
 import { Product } from "@sammanadh/product"; // Using the name defined in package.json
+import TopBar from './components/TopBar';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
+        <TopBar />
         <Product />
       </div>
     </div>

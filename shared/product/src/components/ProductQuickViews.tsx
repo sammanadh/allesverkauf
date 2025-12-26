@@ -16,6 +16,17 @@ function classNames(...classes: string[]) {
 
 export default function ProdductQuickViews({ product, open, onClose }: Props) {
 
+  const addToCart = (product: Product) => {
+    const key = "cart-items";
+    const productsInChartStr = localStorage.getItem(key);
+    let productsInChart: Product[] = [];
+    if (productsInChartStr) {
+      productsInChart = JSON.parse(productsInChartStr) as Product[];
+    }
+    productsInChart.push(product);
+    localStorage.setItem(key, JSON.stringify(productsInChart));
+  }
+
   return (
     <div>
       <Dialog open={open} onClose={onClose} className="relative z-10">
@@ -45,7 +56,7 @@ export default function ProdductQuickViews({ product, open, onClose }: Props) {
                     src={product.img}
                     className="aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5"
                   />
-                  <div className="sm:col-span-8 lg:col-span-7">
+                  <div className="sm:col-span-8 lg:col-span-7 h-full flex flex-col">
                     <h2 className="text-2xl font-bold text-gray-900 sm:pr-12">{product.name}</h2>
 
                     <section aria-labelledby="information-heading" className="mt-2">
@@ -105,39 +116,9 @@ export default function ProdductQuickViews({ product, open, onClose }: Props) {
                           </div>
                         </fieldset>
 
-                        {/* Sizes */}
-                        <fieldset aria-label="Choose a size" className="mt-10">
-                          <div className="flex items-center justify-between">
-                            <div className="text-sm font-medium text-gray-900">Size</div>
-                            <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                              Size guide
-                            </a>
-                          </div>
-
-                          <div className="mt-2 grid grid-cols-4 gap-3">
-                            {product.sizes.map((size, idx) => (
-                              <label
-                                key={size}
-                                className="group relative flex items-center justify-center rounded-md border border-gray-300 bg-white p-3 has-checked:border-indigo-600 has-checked:bg-indigo-600 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 has-disabled:border-gray-400 has-disabled:bg-gray-200 has-disabled:opacity-25"
-                              >
-                                <input
-                                  defaultValue={size}
-                                  defaultChecked={size === product.sizes[idx]}
-                                  name="size"
-                                  type="radio"
-                                  className="absolute inset-0 appearance-none focus:outline-none disabled:cursor-not-allowed"
-                                />
-                                <span className="text-sm font-medium text-gray-900 uppercase group-has-checked:text-white">
-                                  {size}
-                                </span>
-                              </label>
-                            ))}
-                          </div>
-                        </fieldset>
-
                         <button
-                          type="submit"
                           className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
+                          onClick={() => addToCart(product)}
                         >
                           Add to bag
                         </button>

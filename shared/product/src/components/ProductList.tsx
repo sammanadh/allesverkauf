@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import './ProviderComponent.css';
 import ProductQuickViews from "./ProductQuickViews.tsx";
 import { Product } from "../types/product.ts";
-import TopBar from "./TopBar.tsx";
+import SearchBar from "./SearchBar.tsx";
 import debounce from '../utils/debounce.ts';
 import ProductSkeleton from './ProductSkeleton.tsx';
 
@@ -83,7 +83,7 @@ const ProductList: React.FC = () => {
         clickedProduct !== undefined &&
         <ProductQuickViews product={clickedProduct} open={openQuickView} onClose={() => setOpenQuickView(false)} />
       }
-      <TopBar onSearchTermChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e?.target.value)} />
+      <SearchBar onSearchTermChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e?.target.value)} />
       {/* CITATION_START CITATION_LINK: https://flowbite.com/docs/components/carousel/ */}
       {
         showSearchedResults ?

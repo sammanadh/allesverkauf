@@ -1,5 +1,6 @@
 import './App.css';
 import Product from 'product';
+import TopBar from './components/TopBar.tsx';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
+        <TopBar />
         <Product />
       </div>
     </div>

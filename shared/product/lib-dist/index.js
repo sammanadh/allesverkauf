@@ -2312,6 +2312,14 @@ var __webpack_exports__ = {};
         return classes.filter(Boolean).join(' ');
     }
     function ProdductQuickViews({ product, open, onClose }) {
+        const addToCart = (product)=>{
+            const key = "cart-items";
+            const productsInChartStr = localStorage.getItem(key);
+            let productsInChart = [];
+            if (productsInChartStr) productsInChart = JSON.parse(productsInChartStr);
+            productsInChart.push(product);
+            localStorage.setItem(key, JSON.stringify(productsInChart));
+        };
         return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
             children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(ht, {
                 open: open,
@@ -2355,7 +2363,7 @@ var __webpack_exports__ = {};
                                                     className: "aspect-2/3 w-full rounded-lg bg-gray-100 object-cover sm:col-span-4 lg:col-span-5"
                                                 }),
                                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                                    className: "sm:col-span-8 lg:col-span-7",
+                                                    className: "sm:col-span-8 lg:col-span-7 h-full flex flex-col",
                                                     children: [
                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
                                                             className: "text-2xl font-bold text-gray-900 sm:pr-12",
@@ -2449,48 +2457,9 @@ var __webpack_exports__ = {};
                                                                                 })
                                                                             ]
                                                                         }),
-                                                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("fieldset", {
-                                                                            "aria-label": "Choose a size",
-                                                                            className: "mt-10",
-                                                                            children: [
-                                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                                                                    className: "flex items-center justify-between",
-                                                                                    children: [
-                                                                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                                                                            className: "text-sm font-medium text-gray-900",
-                                                                                            children: "Size"
-                                                                                        }),
-                                                                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("a", {
-                                                                                            href: "#",
-                                                                                            className: "text-sm font-medium text-indigo-600 hover:text-indigo-500",
-                                                                                            children: "Size guide"
-                                                                                        })
-                                                                                    ]
-                                                                                }),
-                                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                                                                    className: "mt-2 grid grid-cols-4 gap-3",
-                                                                                    children: product.sizes.map((size, idx)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("label", {
-                                                                                            className: "group relative flex items-center justify-center rounded-md border border-gray-300 bg-white p-3 has-checked:border-indigo-600 has-checked:bg-indigo-600 has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-indigo-600 has-disabled:border-gray-400 has-disabled:bg-gray-200 has-disabled:opacity-25",
-                                                                                            children: [
-                                                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("input", {
-                                                                                                    defaultValue: size,
-                                                                                                    defaultChecked: size === product.sizes[idx],
-                                                                                                    name: "size",
-                                                                                                    type: "radio",
-                                                                                                    className: "absolute inset-0 appearance-none focus:outline-none disabled:cursor-not-allowed"
-                                                                                                }),
-                                                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                                                                                    className: "text-sm font-medium text-gray-900 uppercase group-has-checked:text-white",
-                                                                                                    children: size
-                                                                                                })
-                                                                                            ]
-                                                                                        }, size))
-                                                                                })
-                                                                            ]
-                                                                        }),
                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("button", {
-                                                                            type: "submit",
                                                                             className: "mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden",
+                                                                            onClick: ()=>addToCart(product),
                                                                             children: "Add to bag"
                                                                         })
                                                                     ]
@@ -2531,105 +2500,31 @@ var __webpack_exports__ = {};
     }
     const MagnifyingGlassIcon_ForwardRef = /*#__PURE__*/ external_react_.forwardRef(MagnifyingGlassIcon);
     const esm_MagnifyingGlassIcon = MagnifyingGlassIcon_ForwardRef;
-    function ShoppingBagIcon({ title, titleId, ...props }, svgRef) {
-        return /*#__PURE__*/ external_react_.createElement("svg", Object.assign({
-            xmlns: "http://www.w3.org/2000/svg",
-            fill: "none",
-            viewBox: "0 0 24 24",
-            strokeWidth: 1.5,
-            stroke: "currentColor",
-            "aria-hidden": "true",
-            "data-slot": "icon",
-            ref: svgRef,
-            "aria-labelledby": titleId
-        }, props), title ? /*#__PURE__*/ external_react_.createElement("title", {
-            id: titleId
-        }, title) : null, /*#__PURE__*/ external_react_.createElement("path", {
-            strokeLinecap: "round",
-            strokeLinejoin: "round",
-            d: "M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-        }));
-    }
-    const ShoppingBagIcon_ForwardRef = /*#__PURE__*/ external_react_.forwardRef(ShoppingBagIcon);
-    const esm_ShoppingBagIcon = ShoppingBagIcon_ForwardRef;
     function TopBar({ onSearchTermChange }) {
         return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
             className: "bg-white",
-            children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("header", {
-                className: "relative bg-white",
-                children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("nav", {
-                    "aria-label": "Top",
-                    className: "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8",
+            children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
+                className: "ml-auto flex justify-center",
+                children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
                     children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                        className: "border-b border-gray-200",
+                        className: "mt-2",
                         children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                            className: "flex h-16 items-center",
+                            className: "flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600",
                             children: [
                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                    className: "ml-4 flex lg:ml-0",
-                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("a", {
-                                        href: "/",
-                                        children: [
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                                className: "sr-only",
-                                                children: "Your Company"
-                                            }),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
-                                                alt: "",
-                                                src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600",
-                                                className: "h-8 w-auto"
-                                            })
-                                        ]
+                                    className: "shrink-0 text-base text-gray-500 select-none sm:text-sm/6",
+                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(esm_MagnifyingGlassIcon, {
+                                        "aria-hidden": "true",
+                                        className: "size-4 shrink-0 text-gray-400 group-hover:text-gray-500"
                                     })
                                 }),
-                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                    className: "ml-auto flex",
-                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                        children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                            className: "mt-2",
-                                            children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                                className: "flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 has-[input:focus-within]:outline-2 has-[input:focus-within]:-outline-offset-2 has-[input:focus-within]:outline-indigo-600",
-                                                children: [
-                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                                        className: "shrink-0 text-base text-gray-500 select-none sm:text-sm/6",
-                                                        children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(esm_MagnifyingGlassIcon, {
-                                                            "aria-hidden": "true",
-                                                            className: "size-4 shrink-0 text-gray-400 group-hover:text-gray-500"
-                                                        })
-                                                    }),
-                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("input", {
-                                                        id: "price",
-                                                        name: "price",
-                                                        type: "text",
-                                                        placeholder: "Search",
-                                                        className: "block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6",
-                                                        onChange: onSearchTermChange
-                                                    })
-                                                ]
-                                            })
-                                        })
-                                    })
-                                }),
-                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                    className: "ml-4 flow-root",
-                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("a", {
-                                        href: "#",
-                                        className: "group -m-2 flex items-center p-2",
-                                        children: [
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(esm_ShoppingBagIcon, {
-                                                "aria-hidden": "true",
-                                                className: "size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
-                                            }),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                                className: "ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800",
-                                                children: "0"
-                                            }),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                                className: "sr-only",
-                                                children: "items in cart, view bag"
-                                            })
-                                        ]
-                                    })
+                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("input", {
+                                    id: "price",
+                                    name: "price",
+                                    type: "text",
+                                    placeholder: "Search",
+                                    className: "block min-w-0 grow py-1.5 pr-3 pl-1 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6",
+                                    onChange: onSearchTermChange
                                 })
                             ]
                         })
@@ -2728,6 +2623,7 @@ var __webpack_exports__ = {};
                 setTrendingLoading(false);
             });
             fetch("/api/products/best_sellers").then((res)=>res.json()).then((json)=>{
+                console.log("lll", json.products);
                 setBestSellersProducts(json.products);
             }).catch((err)=>{
                 console.log("Something is wrong!!");
