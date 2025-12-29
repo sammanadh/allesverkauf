@@ -1,10 +1,10 @@
-import { ShoppingBagIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
 type TopBarParam = {
-  onSearchTermChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onCartClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function TopBar({ onSearchTermChange }: TopBarParam) {
+export default function TopBar({ onCartClick }: TopBarParam) {
   return (
     <div className="bg-white">
       <header className="relative bg-white">
@@ -25,14 +25,14 @@ export default function TopBar({ onSearchTermChange }: TopBarParam) {
 
               {/* Cart */}
               <div className="ml-auto flow-root">
-                <a href="#" className="group -m-2 flex items-center p-2">
+                <button className="group -m-2 flex items-center p-2" onClick={onCartClick}>
                   <ShoppingBagIcon
                     aria-hidden="true"
                     className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                   />
                   <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
                   <span className="sr-only">items in cart, view bag</span>
-                </a>
+                </button>
               </div>
             </div>
           </div>

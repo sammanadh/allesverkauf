@@ -1,8 +1,12 @@
 import './App.css';
+import { useState } from "react";
 import Product from 'product';
+import Cart from 'cart';
 import TopBar from './components/TopBar.tsx';
 
 const App = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
   return (
     <div>
       <div id="sticky-banner" className="bg-red-900 sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft">
@@ -15,8 +19,9 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <TopBar />
+        <TopBar onCartClick={() => setIsCartOpen(true)} />
         <Product />
+        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </div>
     </div>
   );

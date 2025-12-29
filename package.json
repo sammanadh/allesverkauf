@@ -9,6 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:p": "cd shared/product && npm run build:lib && cd ../../",
+    "build:c": "cd shared/cart && npm run build:lib && cd ../../",
     "dev:bt": "cd apps/build-time && npm run dev",
     "dev:rt": "cd apps/run-time && npm run dev"
   },
