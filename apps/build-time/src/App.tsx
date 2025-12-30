@@ -1,7 +1,7 @@
 import './App.css';
 import { Product } from "@sammanadh/product"; // Using the name defined in package.json
 import { Cart } from "@sammanadh/cart"; // Using the name defined in package.json
-import TopBar from './components/TopBar';
+import { Header } from '@sammanadh/header';
 import { useState } from 'react';
 
 const App = () => {
@@ -19,7 +19,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <TopBar onCartClick={() => setIsCartOpen(true)} />
+        <Header onCartClick={() => setIsCartOpen(true)} />
         <Product />
         <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </div>

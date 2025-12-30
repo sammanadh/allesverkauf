@@ -2,7 +2,7 @@ import './App.css';
 import { useState } from "react";
 import Product from 'product';
 import Cart from 'cart';
-import TopBar from './components/TopBar.tsx';
+import Header from 'header';
 
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -19,7 +19,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <TopBar onCartClick={() => setIsCartOpen(true)} />
+        <Header onCartClick={() => setIsCartOpen(true)} />
         <Product />
         <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </div>

@@ -1,10 +1,11 @@
+
 import { ShoppingBagIcon } from '@heroicons/react/24/outline'
 
-type TopBarParam = {
+type HeaderParam = {
   onCartClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function TopBar({ onCartClick }: TopBarParam) {
+export default function Header({ onCartClick }: HeaderParam) {
   return (
     <div className="bg-white">
       <header className="relative bg-white">
