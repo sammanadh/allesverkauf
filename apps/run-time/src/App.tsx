@@ -4,8 +4,29 @@ import Product from 'product';
 import Cart from 'cart';
 import Header from 'header';
 
+export type ProductType = {
+  id: string,
+  img: string,
+  name: string,
+  color: string,
+  price: number,
+  description: string,
+  rating: number,
+  reviewsCount: number,
+  sizes: number[]
+}
+
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartProducts, setCartProducts] = useState<ProductType[]>([]);
+
+  const handleAddToCart = (p: ProductType) => {
+    setCartProducts(prev => [...prev, p]);
+  }
+
+  const handleProductRemove = (p: ProductType) => {
+    setCartProducts(prev => prev.filter(product => product.id !== p.id))
+  }
 
   return (
     <div>
@@ -20,8 +41,8 @@ const App = () => {
       </div>
       <div className="content">
         <Header onCartClick={() => setIsCartOpen(true)} />
-        <Product />
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+        <Product onAddToCart={handleAddToCart} />
+        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} products={cartProducts} onProductRemove={handleProductRemove} />
       </div>
     </div>
   );

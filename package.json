@@ -11,9 +11,14 @@
     "build:p": "cd shared/product && npm run build:lib && cd ../../",
     "build:c": "cd shared/cart && npm run build:lib && cd ../../",
     "build:h": "cd shared/header && npm run build:lib && cd ../../",
-    "dev:bt": "cd apps/build-time && npm run dev",
-    "dev:rt": "cd apps/run-time && npm run dev",
-    "linkall": "npm link @sammanadh\/header @sammanadh\/product @sammanadh\/cart @sammanadh\/server"
+    "shared:bt": "cd apps/build-time && npm run dev",
+    "shared:rt": "cd apps/run-time && npm run dev",
+    "shared:p": "npm --prefix shared/product run dev",
+    "shared:c": "npm --prefix shared/cart run dev",
+    "shared:h": "npm --prefix shared/header run dev",
+    "shared:all": "concurrently \"npm run shared:p\" \"npm run shared:c\" \"npm run shared:h\"",
+    "host:all": "concurrently \"npm run shared:bt\" \"npm run shared:rt\"",
+    "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.55.1",
@@ -27,6 +32,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "autoprefixer": "^10.1.0",
+    "concurrently": "^9.2.1",
     "css-loader": "^7.1.2",
     "miragejs": "^0.1.48",
     "postcss": "^8.2.1",

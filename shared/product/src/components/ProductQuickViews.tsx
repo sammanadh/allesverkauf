@@ -8,24 +8,25 @@ type Props = {
   product: Product;
   open: boolean;
   onClose: () => void;
+  onAddToCart: (product: Product) => unknown;
 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function ProdductQuickViews({ product, open, onClose }: Props) {
+export default function ProdductQuickViews({ product, open, onClose, onAddToCart }: Props) {
 
-  const addToCart = (product: Product) => {
-    const key = "cart-items";
-    const productsInChartStr = localStorage.getItem(key);
-    let productsInChart: Product[] = [];
-    if (productsInChartStr) {
-      productsInChart = JSON.parse(productsInChartStr) as Product[];
-    }
-    productsInChart.push(product);
-    localStorage.setItem(key, JSON.stringify(productsInChart));
-  }
+  //const addToCart = (product: Product) => {
+  //const key = "cart-items";
+  //const productsInChartStr = localStorage.getItem(key);
+  //let productsInChart: Product[] = [];
+  //if (productsInChartStr) {
+  //  productsInChart = JSON.parse(productsInChartStr) as Product[];
+  //}
+  //productsInChart.push(product);
+  //localStorage.setItem(key, JSON.stringify(productsInChart));
+  //}
 
   return (
     <div>
@@ -95,7 +96,7 @@ export default function ProdductQuickViews({ product, open, onClose }: Props) {
                         Product options
                       </h3>
 
-                      <form>
+                      <div>
                         {/* Colors */}
                         <fieldset aria-label="Choose a color">
                           <legend className="text-sm font-medium text-gray-900">Color</legend>
@@ -118,11 +119,11 @@ export default function ProdductQuickViews({ product, open, onClose }: Props) {
 
                         <button
                           className="mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden"
-                          onClick={() => addToCart(product)}
+                          onClick={() => onAddToCart(product)}
                         >
                           Add to bag
                         </button>
-                      </form>
+                      </div>
                     </section>
                   </div>
                 </div>
