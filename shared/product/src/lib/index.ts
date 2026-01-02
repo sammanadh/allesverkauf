@@ -1,1 +1,1 @@
-export { default as Product } from "../components/ProviderComponent";
+export { default as Product } from "../components/ProductList";

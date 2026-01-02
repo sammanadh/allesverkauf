@@ -20,10 +20,11 @@ type CartParams = {
   isOpen?: boolean,
   onClose?: () => unknown,
   products: Product[],
-  onProductRemove: (p: Product) => unknown
+  onProductRemove: (p: Product) => unknown,
+  onCheckout: () => unknown
 }
 
-export default function Cart({ isOpen, onClose, products, onProductRemove }: CartParams) {
+export default function Cart({ isOpen, onClose, products, onProductRemove, onCheckout }: CartParams) {
 
   const handleClose: () => unknown = onClose ? onClose : () => { }
 
@@ -105,12 +106,12 @@ export default function Cart({ isOpen, onClose, products, onProductRemove }: Car
                   </div>
                   <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                   <div className="mt-6">
-                    <a
-                      href="#"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
+                    <button
+                      onClick={onCheckout}
+                      className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 w-full px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700"
                     >
                       Checkout
-                    </a>
+                    </button>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>

@@ -46,8 +46,12 @@ export default function ProviderComponent() {
     setProducts(prev => prev.filter(product => product.id !== p.id))
   }
 
+  const handleCheckout = () => {
+    alert("checking out!!")
+  }
+
   return (<div className="content">
     <button onClick={() => setIsOpen(true)}>open</button>
-    <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} products={products} onProductRemove={handleProductRemove} />
+    <Cart isOpen={isOpen} onClose={() => setIsOpen(false)} products={products} onProductRemove={handleProductRemove} onCheckout={handleCheckout} />
   </div>)
 }

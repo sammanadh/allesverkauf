@@ -1,0 +1,29 @@
+{
+  "name": "@sammanadh/checkout",
+  "private": true,
+  "version": "1.0.0",
+  "main": "lib-dist/index.cjs",
+  "module": "lib-dist/index.js",
+  "types": "./lib-dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib-dist/index.d.ts",
+        "default": "./lib-dist/index.js"
+      },
+      "require": {
+        "types": "./lib-dist/index.d.cts",
+        "default": "./lib-dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "lib-dist"
+  ],
+  "scripts": {
+    "dev": "rsbuild dev --open --config rsbuild.config.app.ts",
+    "build": "rsbuild build --config rsbuild.config.app.ts",
+    "preview": "rsbuild preview --config rsbuild.config.app.ts",
+    "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts"
+  }
+}

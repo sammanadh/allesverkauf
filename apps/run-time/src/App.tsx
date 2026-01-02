@@ -19,6 +19,7 @@ export type ProductType = {
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState<ProductType[]>([]);
+  const [checkoutProducts, setCheckoutProducts] = useState<ProductType[]>([]);
 
   const handleAddToCart = (p: ProductType) => {
     setCartProducts(prev => [...prev, p]);
@@ -26,6 +27,11 @@ const App = () => {
 
   const handleProductRemove = (p: ProductType) => {
     setCartProducts(prev => prev.filter(product => product.id !== p.id))
+  }
+
+  const handleCheckout = () => {
+    setCheckoutProducts(cartProducts);
+    alert("checkouout")
   }
 
   return (
@@ -42,7 +48,7 @@ const App = () => {
       <div className="content">
         <Header onCartClick={() => setIsCartOpen(true)} />
         <Product onAddToCart={handleAddToCart} />
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} products={cartProducts} onProductRemove={handleProductRemove} />
+        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} products={cartProducts} onProductRemove={handleProductRemove} onCheckout={handleCheckout} />
       </div>
     </div>
   );
