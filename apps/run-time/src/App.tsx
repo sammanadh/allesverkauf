@@ -1,39 +1,23 @@
 import "./App.css";
-import { useState } from "react";
-import Product from "product";
-import Cart from "cart";
-import Header from "header";
-import Checkout from "checkout";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router";
+import ShopPage from "./pages/ShopPage";
+import CheckoutPage from "./pages/CheckoutPage";
 
-export type ProductType = {
-  id: string;
-  img: string;
-  name: string;
-  color: string;
-  price: number;
-  description: string;
-  rating: number;
-  reviewsCount: number;
-  sizes: number[];
-};
+let router = createBrowserRouter([
+  {
+    path: "/",
+    Component: ShopPage,
+  },
+  {
+    path: "/checkout",
+    Component: CheckoutPage,
+  },
+]);
 
 const App = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-  const [cartProducts, setCartProducts] = useState<ProductType[]>([]);
-  const [checkoutProducts, setCheckoutProducts] = useState<ProductType[]>([]);
-
-  const handleAddToCart = (p: ProductType) => {
-    setCartProducts((prev) => [...prev, p]);
-  };
-
-  const handleProductRemove = (p: ProductType) => {
-    setCartProducts((prev) => prev.filter((product) => product.id !== p.id));
-  };
-
-  const handleCheckout = () => {
-    setCheckoutProducts(cartProducts);
-  };
-
   return (
     <div>
       <div
@@ -49,16 +33,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <Header onCartClick={() => setIsCartOpen(true)} />
-        <Product onAddToCart={handleAddToCart} />
-        <Cart
-          isOpen={isCartOpen}
-          onClose={() => setIsCartOpen(false)}
-          products={cartProducts}
-          onProductRemove={handleProductRemove}
-          onCheckout={handleCheckout}
-        />
-        <Checkout />
+        <RouterProvider router={router} />,
       </div>
     </div>
   );

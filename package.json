@@ -53,6 +53,8 @@
     "@rslib/core": "^0.18.2",
     "merge.js": "^0.0.5",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.11.0",
+    "zustand": "^5.0.9"
   }
 }
