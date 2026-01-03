@@ -13,16 +13,16 @@
     "build:header": "cd shared/header && npm run build:lib && cd ../../",
     "build:checkout": "cd shared/checkout && npm run build:lib && cd ../../",
     "build:confirmation": "cd shared/confirmation && npm run build:lib && cd ../../",
-    "shared:bt": "cd apps/build-time && npm run dev",
-    "shared:rt": "cd apps/run-time && npm run dev",
+    "buildtime": "cd apps/build-time && npm run dev",
+    "runtime": "cd apps/run-time && npm run dev",
     "shared:product": "npm --prefix shared/product run dev",
     "shared:cart": "npm --prefix shared/cart run dev",
     "shared:header": "npm --prefix shared/header run dev",
     "shared:checkout": "npm --prefix shared/checkout run dev",
     "shared:confirmation": "npm --prefix shared/confirmation run dev",
     "shared:all": "concurrently \"npm run shared:product\" \"npm run shared:cart\" \"npm run shared:header\" \"npm run shared:checkout\" \"npm run shared:confirmation\"",
-    "host:all": "concurrently \"npm run shared:bt\" \"npm run shared:rt\"",
-    "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server"
+    "host:all": "concurrently \"npm run buildtime\" \"npm run runtime\"",
+    "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server @sammanadh/checkout @sammanadh/confirmation"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.55.1",

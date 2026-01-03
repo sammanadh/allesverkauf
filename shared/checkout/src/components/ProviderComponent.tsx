@@ -2,6 +2,18 @@ import React from "react";
 import "./ProviderComponent.css";
 import Checkout from "./Checkout";
 
+export type Product = {
+  id: string;
+  img: string;
+  name: string;
+  color: string;
+  price: number;
+  description: string;
+  rating: number;
+  reviewsCount: number;
+  sizes: string[];
+};
+
 const predefinedProducts: Product[] = [
   {
     id: "clothing_001",

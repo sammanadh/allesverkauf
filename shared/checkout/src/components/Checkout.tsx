@@ -1,7 +1,7 @@
 {
   /* CITATION_START CITATION_LINK: https://flowbite.com/blocks/e-commerce/checkout/ */
 }
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import "./ProviderComponent.css";
 
 const enum PAYMENT_METHODS {
@@ -33,7 +33,7 @@ type CheckoutParams = {
   products: Product[];
 };
 
-const Checkout: React.FC = ({ onPlaceOrder, products }: CheckoutParams) => {
+const Checkout = ({ onPlaceOrder, products }: CheckoutParams) => {
   const [selectedPaymentType, setSelectedPaymentType] =
     useState<PAYMENT_METHODS>(PAYMENT_METHODS.CREDIT_CARD);
   const [selectedDeliveryMethod, setSelectedDeliveryMethod] =

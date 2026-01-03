@@ -1,20 +1,21 @@
-import './App.css';
+import "./App.css";
 import { useState } from "react";
-import Product from 'product';
-import Cart from 'cart';
-import Header from 'header';
+import Product from "product";
+import Cart from "cart";
+import Header from "header";
+import Checkout from "checkout";
 
 export type ProductType = {
-  id: string,
-  img: string,
-  name: string,
-  color: string,
-  price: number,
-  description: string,
-  rating: number,
-  reviewsCount: number,
-  sizes: number[]
-}
+  id: string;
+  img: string;
+  name: string;
+  color: string;
+  price: number;
+  description: string;
+  rating: number;
+  reviewsCount: number;
+  sizes: number[];
+};
 
 const App = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -22,21 +23,23 @@ const App = () => {
   const [checkoutProducts, setCheckoutProducts] = useState<ProductType[]>([]);
 
   const handleAddToCart = (p: ProductType) => {
-    setCartProducts(prev => [...prev, p]);
-  }
+    setCartProducts((prev) => [...prev, p]);
+  };
 
   const handleProductRemove = (p: ProductType) => {
-    setCartProducts(prev => prev.filter(product => product.id !== p.id))
-  }
+    setCartProducts((prev) => prev.filter((product) => product.id !== p.id));
+  };
 
   const handleCheckout = () => {
     setCheckoutProducts(cartProducts);
-    alert("checkouout")
-  }
+  };
 
   return (
     <div>
-      <div id="sticky-banner" className="bg-red-900 sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft">
+      <div
+        id="sticky-banner"
+        className="bg-red-900 sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft"
+      >
         <div className="flex items-center mx-auto">
           <p className="flex items-center text-sm font-normal text-body">
             <span className="inline-flex items-center justify-center w-6 h-1 shrink-0 me-2.5 bg-neutral-tertiary rounded-full">
@@ -48,7 +51,14 @@ const App = () => {
       <div className="content">
         <Header onCartClick={() => setIsCartOpen(true)} />
         <Product onAddToCart={handleAddToCart} />
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} products={cartProducts} onProductRemove={handleProductRemove} onCheckout={handleCheckout} />
+        <Cart
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          products={cartProducts}
+          onProductRemove={handleProductRemove}
+          onCheckout={handleCheckout}
+        />
+        <Checkout />
       </div>
     </div>
   );
