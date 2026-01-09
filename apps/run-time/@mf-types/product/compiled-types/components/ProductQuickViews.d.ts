@@ -3,6 +3,7 @@ type Props = {
     product: Product;
     open: boolean;
     onClose: () => void;
+    onAddToCart: (product: Product) => unknown;
 };
-export default function ProdductQuickViews({ product, open, onClose }: Props): import("react/jsx-runtime").JSX.Element;
+export default function ProdductQuickViews({ product, open, onClose, onAddToCart }: Props): import("react/jsx-runtime").JSX.Element;
 export {};

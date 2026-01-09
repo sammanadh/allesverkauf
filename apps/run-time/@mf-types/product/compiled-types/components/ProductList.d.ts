@@ -1,4 +1,7 @@
-import React from 'react';
 import './ProviderComponent.css';
-declare const ProductList: React.FC;
+import { Product } from "../types/product.ts";
+type ProductListProps = {
+    onAddToCart: (p: Product) => unknown;
+};
+declare const ProductList: ({ onAddToCart }: ProductListProps) => import("react/jsx-runtime").JSX.Element;
 export default ProductList;

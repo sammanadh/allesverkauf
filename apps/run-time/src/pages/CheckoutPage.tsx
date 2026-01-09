@@ -1,7 +1,7 @@
 import Checkout from "checkout";
 import Confirmation from "confirmation";
-import { useEffect, useState } from "react";
-import { useNavigate, useNavigation } from "react-router-dom";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useCheckoutProducts from "../store/useCheckoutProducts";
 
 export default () => {

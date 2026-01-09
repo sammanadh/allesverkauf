@@ -7,7 +7,7 @@ type ProductType = {
   description: string;
   rating: number;
   reviewsCount: number;
-  sizes: number[];
+  sizes: string[];
 };
 
 export default ProductType
