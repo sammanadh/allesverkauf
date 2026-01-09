@@ -1,12 +1,23 @@
 import './App.css';
-import { Product } from "@sammanadh/product"; // Using the name defined in package.json
-import { Cart } from "@sammanadh/cart"; // Using the name defined in package.json
-import { Header } from '@sammanadh/header';
-import { useState } from 'react';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router";
+import ShopPage from "./pages/ShopPage";
+import CheckoutPage from "./pages/CheckoutPage";
+
+let router = createBrowserRouter([
+  {
+    path: "/",
+    Component: ShopPage,
+  },
+  {
+    path: "/checkout",
+    Component: CheckoutPage,
+  },
+]);
 
 const App = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
   return (
     <div>
       <div id="sticky-banner" className="bg-green-900 sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft">
@@ -19,9 +30,7 @@ const App = () => {
         </div>
       </div>
       <div className="content">
-        <Header onCartClick={() => setIsCartOpen(true)} />
-        <Product />
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+        <RouterProvider router={router} />,
       </div>
     </div>
   );

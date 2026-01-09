@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import ProductType from '../types/Product'
+import type { ProductType } from '../types/Product'
 
 interface CheckoutProductState {
   checkoutProducts: ProductType[],

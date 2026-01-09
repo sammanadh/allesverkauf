@@ -215,7 +215,7 @@ var __webpack_exports__ = {};
     "use strict";
     __webpack_require__.r(__webpack_exports__);
     __webpack_require__.d(__webpack_exports__, {
-        Product: ()=>components_ProviderComponent
+        Product: ()=>components_ProductList
     });
     const jsx_runtime_namespaceObject = require("react/jsx-runtime");
     var external_react_ = __webpack_require__("react");
@@ -2311,15 +2311,7 @@ var __webpack_exports__ = {};
     function classNames(...classes) {
         return classes.filter(Boolean).join(' ');
     }
-    function ProdductQuickViews({ product, open, onClose }) {
-        const addToCart = (product)=>{
-            const key = "cart-items";
-            const productsInChartStr = localStorage.getItem(key);
-            let productsInChart = [];
-            if (productsInChartStr) productsInChart = JSON.parse(productsInChartStr);
-            productsInChart.push(product);
-            localStorage.setItem(key, JSON.stringify(productsInChart));
-        };
+    function ProdductQuickViews({ product, open, onClose, onAddToCart }) {
         return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
             children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(ht, {
                 open: open,
@@ -2435,7 +2427,7 @@ var __webpack_exports__ = {};
                                                                     className: "sr-only",
                                                                     children: "Product options"
                                                                 }),
-                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("form", {
+                                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
                                                                     children: [
                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("fieldset", {
                                                                             "aria-label": "Choose a color",
@@ -2459,7 +2451,7 @@ var __webpack_exports__ = {};
                                                                         }),
                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("button", {
                                                                             className: "mt-6 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-hidden",
-                                                                            onClick: ()=>addToCart(product),
+                                                                            onClick: ()=>onAddToCart(product),
                                                                             children: "Add to bag"
                                                                         })
                                                                     ]
@@ -2569,7 +2561,7 @@ var __webpack_exports__ = {};
                 })
             ]
         });
-    const ProductList = ()=>{
+    const ProductList = ({ onAddToCart })=>{
         const [openQuickView, setOpenQuickView] = (0, external_react_.useState)(false);
         const [trendingProducts, setTrendingProducts] = (0, external_react_.useState)([]);
         const [bestSellersProducts, setBestSellersProducts] = (0, external_react_.useState)([]);
@@ -2623,7 +2615,6 @@ var __webpack_exports__ = {};
                 setTrendingLoading(false);
             });
             fetch("/api/products/best_sellers").then((res)=>res.json()).then((json)=>{
-                console.log("lll", json.products);
                 setBestSellersProducts(json.products);
             }).catch((err)=>{
                 console.log("Something is wrong!!");
@@ -2632,89 +2623,35 @@ var __webpack_exports__ = {};
                 setBestSellersLoading(false);
             });
         }, []);
-        return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-            className: "bg-white",
-            children: [
-                void 0 !== clickedProduct && /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProdductQuickViews, {
-                    product: clickedProduct,
-                    open: openQuickView,
-                    onClose: ()=>setOpenQuickView(false)
-                }),
-                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(TopBar, {
-                    onSearchTermChange: (e)=>setSearchTerm(e?.target.value)
-                }),
-                showSearchedResults ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                        className: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8",
-                        children: [
-                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
-                                className: "text-2xl font-bold tracking-tight text-gray-900",
-                                children: "Search Results"
-                            }),
-                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                className: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
-                                children: searchLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
-                                    children: [
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {})
-                                    ]
-                                }) : searchResults.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                        className: "group relative cursor-pointer",
-                                        onClick: ()=>onProductClick(product.id),
-                                        children: [
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
-                                                src: product.img,
-                                                alt: "Front of men's Basic Tee in black.",
-                                                className: "aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
-                                            }),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                                className: "mt-4 flex justify-between",
-                                                children: [
-                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                                        children: [
-                                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("h3", {
-                                                                className: "text-sm text-gray-700",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                                                        "aria-hidden": "true",
-                                                                        className: "absolute inset-0"
-                                                                    }),
-                                                                    product.name
-                                                                ]
-                                                            }),
-                                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
-                                                                className: "mt-1 text-sm text-gray-500",
-                                                                children: product.color
-                                                            })
-                                                        ]
-                                                    }),
-                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
-                                                        className: "text-sm font-medium text-gray-900",
-                                                        children: product.price
-                                                    })
-                                                ]
-                                            })
-                                        ]
-                                    }))
-                            })
-                        ]
-                    })
-                }) : /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                    children: [
-                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+        const handleAddToCart = (p)=>{
+            setOpenQuickView(false);
+            onAddToCart(p);
+        };
+        return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
+            className: "container m-auto",
+            children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                className: "bg-white",
+                children: [
+                    void 0 !== clickedProduct && /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProdductQuickViews, {
+                        onAddToCart: handleAddToCart,
+                        product: clickedProduct,
+                        open: openQuickView,
+                        onClose: ()=>setOpenQuickView(false)
+                    }),
+                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(TopBar, {
+                        onSearchTermChange: (e)=>setSearchTerm(e?.target.value)
+                    }),
+                    showSearchedResults ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
+                        children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
                             className: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8",
                             children: [
                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
                                     className: "text-2xl font-bold tracking-tight text-gray-900",
-                                    children: "Trending Products"
+                                    children: "Search Results"
                                 }),
                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
                                     className: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
-                                    children: trendingLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
+                                    children: searchLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
                                         children: [
                                             /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
                                             /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
@@ -2723,7 +2660,7 @@ var __webpack_exports__ = {};
                                             /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
                                             /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {})
                                         ]
-                                    }) : trendingProducts.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                    }) : searchResults.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
                                             className: "group relative cursor-pointer",
                                             onClick: ()=>onProductClick(product.id),
                                             children: [
@@ -2763,58 +2700,115 @@ var __webpack_exports__ = {};
                                         }))
                                 })
                             ]
-                        }),
-                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                            className: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8",
-                            children: [
-                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
-                                    className: "text-2xl font-bold tracking-tight text-gray-900",
-                                    children: "Best Sellers"
-                                }),
-                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                    className: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8",
-                                    children: bestSellersLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
-                                        children: [
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
-                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {})
-                                        ]
-                                    }) : bestSellersProducts.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
-                                            className: "group relative cursor-pointer",
-                                            onClick: ()=>onProductClick(product.id),
-                                            children: [
-                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
-                                                    src: product.img,
-                                                    alt: "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
-                                                    className: "aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
-                                                }),
-                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h3", {
-                                                    className: "mt-4 text-sm text-gray-700",
-                                                    children: product.name
-                                                }),
-                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
-                                                    className: "mt-1 text-lg font-medium text-gray-900",
-                                                    children: product.price
-                                                })
-                                            ]
-                                        }))
-                                })
-                            ]
                         })
-                    ]
-                })
-            ]
+                    }) : /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                        children: [
+                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                className: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8",
+                                children: [
+                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
+                                        className: "text-2xl font-bold tracking-tight text-gray-900",
+                                        children: "Trending Products"
+                                    }),
+                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
+                                        className: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8",
+                                        children: trendingLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
+                                            children: [
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {})
+                                            ]
+                                        }) : trendingProducts.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                                className: "group relative cursor-pointer",
+                                                onClick: ()=>onProductClick(product.id),
+                                                children: [
+                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
+                                                        src: product.img,
+                                                        alt: "Front of men's Basic Tee in black.",
+                                                        className: "aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
+                                                    }),
+                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                                        className: "mt-4 flex justify-between",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                                                children: [
+                                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("h3", {
+                                                                        className: "text-sm text-gray-700",
+                                                                        children: [
+                                                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
+                                                                                "aria-hidden": "true",
+                                                                                className: "absolute inset-0"
+                                                                            }),
+                                                                            product.name
+                                                                        ]
+                                                                    }),
+                                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
+                                                                        className: "mt-1 text-sm text-gray-500",
+                                                                        children: product.color
+                                                                    })
+                                                                ]
+                                                            }),
+                                                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
+                                                                className: "text-sm font-medium text-gray-900",
+                                                                children: product.price
+                                                            })
+                                                        ]
+                                                    })
+                                                ]
+                                            }))
+                                    })
+                                ]
+                            }),
+                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                className: "mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8",
+                                children: [
+                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h2", {
+                                        className: "text-2xl font-bold tracking-tight text-gray-900",
+                                        children: "Best Sellers"
+                                    }),
+                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
+                                        className: "mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8",
+                                        children: bestSellersLoading ? /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(jsx_runtime_namespaceObject.Fragment, {
+                                            children: [
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {}),
+                                                /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(ProductSkeleton, {})
+                                            ]
+                                        }) : bestSellersProducts.map((product)=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
+                                                className: "group relative cursor-pointer",
+                                                onClick: ()=>onProductClick(product.id),
+                                                children: [
+                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
+                                                        src: product.img,
+                                                        alt: "Tall slender porcelain bottle with natural clay textured body and cork stopper.",
+                                                        className: "aspect-square w-full rounded-lg bg-gray-200 object-cover group-hover:opacity-75 xl:aspect-7/8"
+                                                    }),
+                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h3", {
+                                                        className: "mt-4 text-sm text-gray-700",
+                                                        children: product.name
+                                                    }),
+                                                    /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
+                                                        className: "mt-1 text-lg font-medium text-gray-900",
+                                                        children: product.price
+                                                    })
+                                                ]
+                                            }))
+                                    })
+                                ]
+                            })
+                        ]
+                    })
+                ]
+            })
         });
     };
     const components_ProductList = ProductList;
-    const Provider = ()=>/*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-            className: "container m-auto",
-            children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)(components_ProductList, {})
-        });
-    const components_ProviderComponent = Provider;
 })();
 exports.Product = __webpack_exports__.Product;
 for(var __webpack_i__ in __webpack_exports__)if (-1 === [

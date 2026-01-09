@@ -1,6 +1,5 @@
 {
   "name": "@sammanadh/header",
-  "private": true,
   "version": "1.0.0",
   "main": "lib-dist/index.cjs",
   "module": "lib-dist/index.js",

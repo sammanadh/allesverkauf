@@ -2283,40 +2283,11 @@ var __webpack_exports__ = {};
     }
     const ForwardRef = /*#__PURE__*/ external_react_.forwardRef(XMarkIcon);
     const esm_XMarkIcon = ForwardRef;
-    const products = [
-        {
-            id: 1,
-            name: 'Throwback Hip Bag',
-            href: '#',
-            color: 'Salmon',
-            price: '$90.00',
-            quantity: 1,
-            imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-01.jpg',
-            imageAlt: 'Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt.'
-        },
-        {
-            id: 2,
-            name: 'Medium Stuff Satchel',
-            href: '#',
-            color: 'Blue',
-            price: '$32.00',
-            quantity: 1,
-            imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-02.jpg',
-            imageAlt: 'Front of satchel with blue canvas body, black straps and handle, drawstring top, and front zipper pouch.'
-        },
-        {
-            id: 3,
-            name: 'Zip Tote Basket',
-            href: '#',
-            color: 'White and black',
-            price: '$140.00',
-            quantity: 1,
-            imageSrc: 'https://tailwindcss.com/plus-assets/img/ecommerce-images/shopping-cart-page-04-product-03.jpg',
-            imageAlt: 'Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls.'
-        }
-    ];
-    function Cart({ isOpen, onClose }) {
+    function Cart({ isOpen, onClose, products, onProductRemove, onCheckout }) {
         const handleClose = onClose ? onClose : ()=>{};
+        const total = (0, external_react_.useMemo)(()=>products.reduce((acc, p)=>acc + p.price, 0), [
+            products
+        ]);
         return /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)(ht, {
             open: isOpen,
             onClose: handleClose,
@@ -2384,8 +2355,7 @@ var __webpack_exports__ = {};
                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
                                                                             className: "size-24 shrink-0 overflow-hidden rounded-md border border-gray-200",
                                                                             children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
-                                                                                alt: product.imageAlt,
-                                                                                src: product.imageSrc,
+                                                                                src: product.img,
                                                                                 className: "size-full object-cover"
                                                                             })
                                                                         }),
@@ -2398,10 +2368,7 @@ var __webpack_exports__ = {};
                                                                                             className: "flex justify-between text-base font-medium text-gray-900",
                                                                                             children: [
                                                                                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("h3", {
-                                                                                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("a", {
-                                                                                                        href: product.href,
-                                                                                                        children: product.name
-                                                                                                    })
+                                                                                                    children: product.name
                                                                                                 }),
                                                                                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
                                                                                                     className: "ml-4",
@@ -2421,8 +2388,8 @@ var __webpack_exports__ = {};
                                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("p", {
                                                                                             className: "text-gray-500",
                                                                                             children: [
-                                                                                                "Qty ",
-                                                                                                product.quantity
+                                                                                                "Rating ",
+                                                                                                product.rating
                                                                                             ]
                                                                                         }),
                                                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
@@ -2430,6 +2397,7 @@ var __webpack_exports__ = {};
                                                                                             children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("button", {
                                                                                                 type: "button",
                                                                                                 className: "font-medium text-indigo-600 hover:text-indigo-500",
+                                                                                                onClick: ()=>onProductRemove(product),
                                                                                                 children: "Remove"
                                                                                             })
                                                                                         })
@@ -2453,8 +2421,11 @@ var __webpack_exports__ = {};
                                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
                                                             children: "Subtotal"
                                                         }),
-                                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("p", {
-                                                            children: "$262.00"
+                                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("p", {
+                                                            children: [
+                                                                "€",
+                                                                total
+                                                            ]
                                                         })
                                                     ]
                                                 }),
@@ -2464,9 +2435,9 @@ var __webpack_exports__ = {};
                                                 }),
                                                 /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
                                                     className: "mt-6",
-                                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("a", {
-                                                        href: "#",
-                                                        className: "flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700",
+                                                    children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("button", {
+                                                        onClick: onCheckout,
+                                                        className: "flex items-center justify-center rounded-md border border-transparent bg-indigo-600 w-full px-6 py-3 text-base font-medium text-white shadow-xs hover:bg-indigo-700",
                                                         children: "Checkout"
                                                     })
                                                 }),
