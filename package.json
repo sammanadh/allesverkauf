@@ -30,7 +30,9 @@
     "publish:confirmation": "cd shared/confirmation && npm run build:lib && npm publish --access public && cd ../../",
     "publish:all": "concurrently \"npm run publish:server\" \"npm run publish:product\", \"npm run publish:cart\" \"npm run publish:header\" \"npm run publish:checkout\" \"npm run publish:confirmation\"",
     "host:all": "concurrently \"npm run buildtime\" \"npm run runtime\"",
-    "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server @sammanadh/checkout @sammanadh/confirmation"
+    "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server @sammanadh/checkout @sammanadh/confirmation",
+    "build:buildtime": "cd apps/build-time && npm run build",
+    "build:runtime": "cd apps/run-time && npm run build"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.55.1",
