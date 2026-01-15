@@ -1,23 +1,28 @@
-# Rslib project
+Prerequisites:
 
-## Setup
+- [Vercel CLI](https://vercel.com/docs/cli) installed globally
 
-Install the dependencies:
+To develop locally:
 
-```bash
+```
 npm install
+vc dev
 ```
 
-## Get started
-
-Build the library:
-
-```bash
-npm run build
+```
+open http://localhost:3000
 ```
 
-Build the library in watch mode:
+To build locally:
 
-```bash
-npm run dev
+```
+npm install
+vc build
+```
+
+To deploy:
+
+```
+npm install
+vc deploy
 ```

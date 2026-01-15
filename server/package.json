@@ -1,21 +1,12 @@
 {
-  "name": "@sammanadh/server",
-  "version": "0.0.0",
+  "name": "server",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    }
+  "dependencies": {
+    "hono": "^4.11.4"
   },
-  "main": "./dist/index.cjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "build": "rslib build",
-    "dev": "rslib build --watch"
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.3"
   }
 }

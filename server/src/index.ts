@@ -1,32 +1,28 @@
-import { createServer } from "miragejs"
-import { trendingProducts, bestSellersProducts, allProducts } from "./data"
+import { Hono } from 'hono'
+import { cors } from 'hono/cors';
+import { allProducts, bestSellersProducts, trendingProducts } from './data.js'
 
-export default function() {
-  createServer({
-    routes() {
-      this.namespace = "api"
+const app = new Hono()
 
-      this.get("products/trending", () => ({
-        products: trendingProducts,
-      }))
+app.use(cors())
 
-      this.get("products/best_sellers", () => ({
-        products: bestSellersProducts,
-      }))
-
-      this.get("products", (_, request) => {
-        let searchBy = request.queryParams.searchBy;
-        return {
-          products: allProducts.filter((product) => searchBy ? product.name.includes(searchBy as string) : true)
-        }
-      })
-
-      // to allow request that are not meant for this api
-      this.namespace = "";
-      this.passthrough((req) => {
-        const isApiReq = req.url.includes("/api/");
-        return !isApiReq;
-      });
-    },
+app.get("products/trending", (c) => {
+  return c.json({
+    products: trendingProducts
   })
-}
+})
+
+app.get("products/best_sellers", (c) => {
+  return c.json({
+    products: bestSellersProducts
+  })
+})
+
+app.get("products", (c) => {
+  let searchBy = c.req.query().searchBy;
+  return c.json({
+    products: allProducts.filter((product) => searchBy ? product.name.includes(searchBy as string) : true)
+  })
+})
+
+export default app

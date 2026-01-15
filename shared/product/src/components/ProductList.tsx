@@ -35,7 +35,7 @@ const ProductList = ({ onAddToCart }: ProductListProps) => {
   const debouncedSearch = useMemo(() => {
     setSearchLoading(true);
     return debounce((searchBy: string) => {
-      fetch(`/api/products?searchBy=${searchBy}`)
+      fetch(`https://serverallesverkauf.vercel.app/products?searchBy=${searchBy}`)
         .then((res) => res.json())
         .then((json) => {
           setSearchResults(json.products);
@@ -57,7 +57,7 @@ const ProductList = ({ onAddToCart }: ProductListProps) => {
     setTrendingLoading(true);
     setBestSellersLoading(true);
 
-    fetch("/api/products/trending")
+    fetch("https://serverallesverkauf.vercel.app/products/trending")
       .then((res) => res.json())
       .then((json) => {
         setTrendingProducts(json.products);
@@ -68,7 +68,7 @@ const ProductList = ({ onAddToCart }: ProductListProps) => {
         setTrendingLoading(false);
       })
 
-    fetch("/api/products/best_sellers")
+    fetch("https://serverallesverkauf.vercel.app/products/best_sellers")
       .then((res) => res.json())
       .then((json) => {
         setBestSellersProducts(json.products);
