@@ -4,6 +4,9 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
+  output: {
+    assetPrefix: "auto",
+  },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {
     port: 3002,
