@@ -2586,7 +2586,7 @@ var __webpack_exports__ = {};
         const debouncedSearch = (0, external_react_.useMemo)(()=>{
             setSearchLoading(true);
             return utils_debounce((searchBy)=>{
-                fetch(`/api/products?searchBy=${searchBy}`).then((res)=>res.json()).then((json)=>{
+                fetch(`https://serverallesverkauf.vercel.app/products?searchBy=${searchBy}`).then((res)=>res.json()).then((json)=>{
                     setSearchResults(json.products);
                 }).catch((err)=>{
                     console.log("Something is wrong!!");
@@ -2606,7 +2606,7 @@ var __webpack_exports__ = {};
         (0, external_react_.useEffect)(()=>{
             setTrendingLoading(true);
             setBestSellersLoading(true);
-            fetch("/api/products/trending").then((res)=>res.json()).then((json)=>{
+            fetch("https://serverallesverkauf.vercel.app/products/trending").then((res)=>res.json()).then((json)=>{
                 setTrendingProducts(json.products);
             }).catch((err)=>{
                 console.log("Something is wrong!!");
@@ -2614,7 +2614,7 @@ var __webpack_exports__ = {};
             }).finally(()=>{
                 setTrendingLoading(false);
             });
-            fetch("/api/products/best_sellers").then((res)=>res.json()).then((json)=>{
+            fetch("https://serverallesverkauf.vercel.app/products/best_sellers").then((res)=>res.json()).then((json)=>{
                 setBestSellersProducts(json.products);
             }).catch((err)=>{
                 console.log("Something is wrong!!");

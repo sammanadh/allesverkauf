@@ -1,6 +1,6 @@
 {
   "name": "@sammanadh/cart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "lib-dist/index.cjs",
   "module": "lib-dist/index.js",
   "types": "./lib-dist/index.d.ts",
