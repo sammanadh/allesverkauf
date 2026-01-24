@@ -23,6 +23,8 @@
     "dev": "rsbuild dev --config rsbuild.config.app.ts",
     "build": "rsbuild build --config rsbuild.config.app.ts",
     "preview": "rsbuild preview --config rsbuild.config.app.ts",
-    "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts"
+    "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts",
+    "dev:webpack": "webpack serve --config webpack.config.ts",
+    "build:webpack": "webpack --mode production --config webpack.config.ts"
   }
 }
