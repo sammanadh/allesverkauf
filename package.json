@@ -54,6 +54,7 @@
     "@module-federation/rsbuild-plugin": "^0.21.6",
     "@rsbuild/core": "^1.6.4",
     "@rsbuild/plugin-react": "^1.4.2",
+    "@rslib/core": "^0.18.2",
     "@rspack/cli": "~1.2.0",
     "@rspack/core": "~1.2.0",
     "@rspack/plugin-react-refresh": "~1.0.1",
@@ -75,13 +76,12 @@
     "typescript": "^5.7.3",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.3"
+    "webpack-dev-server": "^5.2.3",
+    "@module-federation/enhanced": "^0.8.9"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
     "@heroicons/react": "^2.2.0",
-    "@module-federation/enhanced": "^0.8.9",
-    "@rslib/core": "^0.18.2",
     "@sammanadh/cart": "^1.0.0",
     "@sammanadh/checkout": "^1.0.0",
     "@sammanadh/confirmation": "^1.0.0",

@@ -10,7 +10,6 @@ import type { Configuration as DevConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import packageJson from '../../package.json' with { type: 'json' };
 
 const { ModuleFederationPlugin } = webpack.container;
 const __filename = fileURLToPath(import.meta.url);
@@ -19,7 +18,6 @@ type WebpackConfig = webpack.Configuration | DevConfiguration;
 
 const appTitle = 'Checkout (Webpack)';
 const appName = 'checkout';
-const deps = packageJson.dependencies;
 const port = 3015;
 
 const configFunc = (_env: any, argv: { mode?: "production" | "development" }): WebpackConfig => {
@@ -91,7 +89,6 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
           '.': './src/components/Checkout.tsx',
         },
         shared: {
-          ...deps,
           react: {
             singleton: true,
             requiredVersion: '^19.0.0',
@@ -102,6 +99,8 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
             requiredVersion: '^19.0.0',
             eager: false,
           },
+          '@headlessui/react': { singleton: true },
+          '@heroicons/react': { singleton: true }
         },
       }),
       new HtmlWebpackPlugin({
