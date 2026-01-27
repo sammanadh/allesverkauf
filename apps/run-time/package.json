@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "rsbuild dev --open",
     "build": "rsbuild build",
-    "preview": "rsbuild preview"
+    "preview": "rsbuild preview",
+    "dev:webpack": "webpack serve --config webpack.config.ts",
+    "build:webpack": "webpack --mode production --config webpack.config.ts"
   }
 }

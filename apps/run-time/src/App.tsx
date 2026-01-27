@@ -39,4 +39,16 @@ const App = () => {
   );
 };
 
+// import Checkout from 'checkout';
+// import Product from 'product';
+
+// const App = () => {
+//   return (
+//     <div>
+//       {/* <Checkout products={[]} onPlaceOrder={() => { }} /> */}
+//       <Product onAddToCart={() => { }} />
+//     </div>
+//   )
+// }
+
 export default App;
