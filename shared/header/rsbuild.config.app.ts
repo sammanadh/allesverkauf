@@ -4,8 +4,12 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
+  html: {
+    title: "Header (Rsbuild)"
+  },
   output: {
     assetPrefix: "auto",
+    distPath: "deployments/rsbuild/dist",
   },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {

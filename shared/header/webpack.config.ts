@@ -15,6 +15,7 @@ const { ModuleFederationPlugin } = webpack.container;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 type WebpackConfig = webpack.Configuration | DevConfiguration;
+const distPath = 'deployments/webpack/dist';
 
 const appTitle = 'Header (Webpack)';
 const appName = 'header';
@@ -27,7 +28,7 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
     mode: argv.mode || 'development',
     devtool: isProd ? 'source-map' : 'eval-source-map',
     output: {
-      path: path.resolve(__dirname, 'webpack-dist'),
+      path: path.resolve(__dirname, distPath),
       filename: isProd ? '[name].[contenthash].js' : '[name].js',
       chunkFilename: isProd ? '[name].[contenthash].chunk.js' : '[name].chunk.js',
       clean: true,

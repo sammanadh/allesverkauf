@@ -4,7 +4,11 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
+  html: {
+    title: "Cart (Rsbuild)"
+  },
   output: {
+    distPath: "deployments/rsbuild/dist",
     assetPrefix: "auto",
   },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],

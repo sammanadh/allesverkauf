@@ -4,15 +4,8 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
-  html: {
-    title: "Checkout (Rsbuild)"
-  },
-  output: {
-    distPath: "deployments/rsbuild/dist",
-    assetPrefix: "auto",
-  },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {
-    port: 3005,
+    port: 3001,
   },
 });

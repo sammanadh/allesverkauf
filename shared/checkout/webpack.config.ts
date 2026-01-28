@@ -19,6 +19,7 @@ type WebpackConfig = webpack.Configuration | DevConfiguration;
 const appTitle = 'Checkout (Webpack)';
 const appName = 'checkout';
 const port = 3015;
+const distPath = "deployments/webpack/dist";
 
 const configFunc = (_env: any, argv: { mode?: "production" | "development" }): WebpackConfig => {
   const isProd = argv.mode === 'production';
@@ -27,7 +28,7 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
     mode: argv.mode || 'development',
     devtool: isProd ? 'source-map' : 'eval-source-map',
     output: {
-      path: path.resolve(__dirname, 'webpack-dist'),
+      path: path.resolve(__dirname, distPath),
       filename: isProd ? '[name].[contenthash].js' : '[name].js',
       chunkFilename: isProd ? '[name].[contenthash].chunk.js' : '[name].chunk.js',
       clean: true,
