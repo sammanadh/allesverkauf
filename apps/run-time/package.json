@@ -7,6 +7,8 @@
     "build:rsbuild": "rsbuild build",
     "preview": "rsbuild preview",
     "dev:webpack": "webpack serve --config webpack.config.ts",
-    "build:webpack": "webpack --mode production --config webpack.config.ts"
+    "build:webpack": "webpack --mode production --config webpack.config.ts",
+    "deploy:webpack": "npm run build:webpack && cd deployments/webpack && vercel link --project rt_allesverkauf_wp --yes && vercel --prod",
+    "deploy:rsbuild": "npm run build:rsbuild && cd deployments/rsbuild && vercel link --project rt_allesverkauf_rb --yes && vercel --prod"
   }
 }
