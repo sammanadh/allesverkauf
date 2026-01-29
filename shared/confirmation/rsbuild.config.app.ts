@@ -9,6 +9,7 @@ export default defineConfig({
   },
   output: {
     assetPrefix: "auto",
+    distPath: "deployments/rsbuild/dist"
   },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {

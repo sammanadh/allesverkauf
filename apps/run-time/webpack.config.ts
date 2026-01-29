@@ -8,9 +8,10 @@ import { fileURLToPath } from 'url';
 const { ModuleFederationPlugin } = webpack.container;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const distPath = 'deployments/webpack/dist';
 type WebpackConfig = webpack.Configuration | DevConfiguration;
 
-const appTitle = 'run-time';
+const appTitle = 'Runtime (Webpack)';
 
 const configFunc = (_env: any, argv: { mode?: "production" | "development" }): WebpackConfig => {
   const isProd = argv.mode === 'production';
@@ -20,7 +21,7 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
     devtool: isProd ? 'source-map' : 'eval-source-map',
     entry: './src/index.tsx',
     output: {
-      path: path.resolve(__dirname, 'webpack-dist'),
+      path: path.resolve(__dirname, distPath),
       filename: isProd ? '[name].[contenthash].js' : '[name].js',
       chunkFilename: isProd ? '[name].[contenthash].chunk.js' : '[name].chunk.js',
       clean: true,
@@ -74,15 +75,18 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
       ],
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.BUILD_TOOL': JSON.stringify('webpack'),
+      }),
       new ModuleFederationPlugin({
         name: 'run-time',
         filename: 'remoteEntry.js',
         remotes: {
-          'product': 'product@http://localhost:3012/remoteEntry.js',
-          'cart': 'cart@http://localhost:3013/remoteEntry.js',
-          'header': 'header@http://localhost:3014/remoteEntry.js',
-          'checkout': 'checkout@http://localhost:3015/remoteEntry.js',
-          'confirmation': 'confirmation@http://localhost:3016/remoteEntry.js'
+          'product': 'product@https://allesverkaufproductwp.vercel.app/remoteEntry.js',
+          'cart': 'cart@https://allesverkaufcartwp.vercel.app/remoteEntry.js',
+          'header': 'header@https://allesverkaufheaderwp.vercel.app//remoteEntry.js',
+          'checkout': 'checkout@https://allesverkaufcheckoutwp.vercel.app/remoteEntry.js',
+          'confirmation': 'confirmation@https://allesverkaufconfirmationwp.vercel.app/remoteEntry.js'
         },
         shared: {
           react: {

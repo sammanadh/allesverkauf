@@ -26,7 +26,8 @@
     "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts",
     "dev:webpack": "webpack serve --config webpack.config.ts",
     "build:webpack": "webpack --mode production --config webpack.config.ts",
-    "deploy:webpack": "npm run build:webpack && vercel link --project allesverkauf_confirmation_wp --yes && vercel --prod -A vercel_webpack.json",
-    "deploy:rsbuild": "npm run build:rsbuild && vercel link --project allesverkauf_confirmation_rb --yes && vercel --prod -A vercel_rsbuild.json"
+    "deploy:webpack": "npm run build:webpack && cd deployments/webpack && vercel link --project allesverkauf_confirmation_wp --yes && vercel --prod",
+    "deploy:rsbuild": "npm run build:rsbuild && cd deployments/rsbuild && vercel link --project allesverkauf_confirmation_rb --yes && vercel --prod"
+  
   }
 }
