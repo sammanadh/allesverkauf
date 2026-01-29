@@ -28,6 +28,5 @@
     "build:webpack": "webpack --mode production --config webpack.config.ts",
     "deploy:webpack": "npm run build:webpack && cd deployments/webpack && vercel link --project allesverkauf_confirmation_wp --yes && vercel --prod",
     "deploy:rsbuild": "npm run build:rsbuild && cd deployments/rsbuild && vercel link --project allesverkauf_confirmation_rb --yes && vercel --prod"
-  
   }
 }
