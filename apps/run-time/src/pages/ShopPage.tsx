@@ -11,7 +11,7 @@ import useCheckoutProducts from "../store/useCheckoutProducts";
 export default () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [cartProducts, setCartProducts] = useState<ProductType[]>([]);
-  const [checkoutProducts, setCheckoutProducts] = useState<ProductType[]>([]);
+  const [showCompOtherThanSearch, setShowCompOtherThanSearch] = useState(true);
   const navigate = useNavigate();
   const updateCheckoutProducts = useCheckoutProducts(state => state.updateCheckoutProducts);
 
@@ -28,14 +28,29 @@ export default () => {
     navigate("/checkout")
   };
 
+  const handleSearchTermChange = (term: string) => {
+    if (term) {
+      setShowCompOtherThanSearch(false);
+    } else {
+      setShowCompOtherThanSearch(true);
+    }
+  }
+
   return (
     <>
       <Header onCartClick={() => setIsCartOpen(true)} />
       {/* <Product onAddToCart={handleAddToCart} /> */}
-      <Hero />
-      <Search />
-      <ProductCollection title="Trending" strategy="trending" onAddToCart={handleAddToCart} />
-      <ProductCollection title="Best Sellers" strategy="best-sellers" onAddToCart={handleAddToCart} />
+      <Search onSearchTermChange={handleSearchTermChange} onAddToCart={handleAddToCart} />
+      <br />
+      {
+        showCompOtherThanSearch && (
+          <>
+            <Hero />
+            <ProductCollection title="Trending" strategy="trending" onAddToCart={handleAddToCart} />
+            <ProductCollection title="Best Sellers" strategy="best-sellers" onAddToCart={handleAddToCart} />
+          </>
+        )
+      }
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
