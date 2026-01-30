@@ -1,0 +1,15 @@
+{
+  "name": "search",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:rsbuild": "rsbuild dev --config rsbuild.config.app.ts",
+    "build:rsbuild": "rsbuild build --config rsbuild.config.app.ts",
+    "preview": "rsbuild preview --config rsbuild.config.app.ts",
+    "build:lib": "NODE_ENV=production rslib build --config rsbuild.config.lib.ts",
+    "dev:webpack": "webpack serve --config webpack.config.ts",
+    "build:webpack": "webpack --mode production --config webpack.config.ts",
+    "deploy:webpack": "npm run build:webpack && cd deployments/webpack && vercel link --project allesverkauf_search_collection_wp --yes && vercel --prod",
+    "deploy:rsbuild": "npm run build:rsbuild && cd deployments/rsbuild && vercel link --project allesverkauf_search_collection_rb --yes && vercel --prod"
+  }
+}

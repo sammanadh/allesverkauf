@@ -1,1 +1,1 @@
-export { default as Header } from "../components/Header";
+export { default as ProductCollection } from "../components/ProviderComponent";
