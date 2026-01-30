@@ -4,8 +4,15 @@ import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
+  html: {
+    title: "Hero (Rsbuild)"
+  },
+  output: {
+    assetPrefix: "auto",
+    distPath: "deployments/rsbuild/dist",
+  },
   plugins: [pluginReact(), pluginModuleFederation(moduleFederationConfig)],
   server: {
-    port: 3001,
+    port: 3007,
   },
 });
