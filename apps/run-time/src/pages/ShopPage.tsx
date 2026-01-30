@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import ProductType from "../types/Product";
-import Product from "product";
+import Hero from "hero";
+import ProductCollection from "product_collection";
+import Search from "search";
 import Cart from "cart";
 import Header from "header";
 import useCheckoutProducts from "../store/useCheckoutProducts";
@@ -29,7 +31,11 @@ export default () => {
   return (
     <>
       <Header onCartClick={() => setIsCartOpen(true)} />
-      <Product onAddToCart={handleAddToCart} />
+      {/* <Product onAddToCart={handleAddToCart} /> */}
+      <Hero />
+      <Search />
+      <ProductCollection title="Trending" strategy="trending" onAddToCart={handleAddToCart} />
+      <ProductCollection title="Best Sellers" strategy="best-sellers" onAddToCart={handleAddToCart} />
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
