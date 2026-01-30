@@ -8,9 +8,10 @@ import ProductSkeleton from './ProductSkeleton.tsx';
 
 type ProductListProps = {
   onAddToCart: (p: Product) => unknown;
+  onSearchTermChange: (term: string) => unknown;
 }
 
-const ProviderComponent = ({ onAddToCart }: ProductListProps) => {
+const ProviderComponent = ({ onAddToCart, onSearchTermChange }: ProductListProps) => {
   const [openQuickView, setOpenQuickView] = useState(false);
   const [clickedProduct, setClickedProduct] = useState<Product>();
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,6 +20,7 @@ const ProviderComponent = ({ onAddToCart }: ProductListProps) => {
   const [searchLoading, setSearchLoading] = useState(false);
 
   useEffect(() => {
+    onSearchTermChange(searchTerm);
     if (searchTerm !== "") {
       debouncedSearch(searchTerm);
       setShowSearchedResults(true);

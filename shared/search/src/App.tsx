@@ -4,7 +4,7 @@ import Provider from './components/ProviderComponent';
 const App = () => {
   return (
     <div className="content">
-      <Provider />
+      <Provider onSearchTermChange={() => {}} onAddToCart={() => {}} />
     </div>
   );
 };
