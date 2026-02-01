@@ -9,7 +9,7 @@ export default createModuleFederationConfig({
     'confirmation': 'confirmation@https://allesverkaufproductrb.vercel.app/mf-manifest.json',
     'product_collection': 'product_collection@https://allesverkaufproductcollectionrb.vercel.app/mf-manifest.json',
     'hero': 'hero@https://allesverkaufherorb.vercel.app/mf-manifest.json',
-    'search': 'search@https://allesverkaufsearchrb.vercel.app/mf-manifest.json'
+    'product_search': 'product_search@https://allesverkaufproductsearchrb.vercel.app/mf-manifest.json'
   },
   shareStrategy: 'loaded-first',
   shared: {

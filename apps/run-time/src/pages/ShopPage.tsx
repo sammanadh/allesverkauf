@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import ProductType from "../types/Product";
 import Hero from "hero";
 import ProductCollection from "product_collection";
-import Search from "search";
+import ProductSearch from "product_search";
 import Cart from "cart";
 import Header from "header";
 import useCheckoutProducts from "../store/useCheckoutProducts";
@@ -39,8 +39,7 @@ export default () => {
   return (
     <>
       <Header onCartClick={() => setIsCartOpen(true)} />
-      {/* <Product onAddToCart={handleAddToCart} /> */}
-      <Search onSearchTermChange={handleSearchTermChange} onAddToCart={handleAddToCart} />
+      <ProductSearch onSearchTermChange={handleSearchTermChange} onAddToCart={handleAddToCart} />
       <br />
       {
         showCompOtherThanSearch && (

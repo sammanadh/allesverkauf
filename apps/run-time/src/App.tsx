@@ -24,7 +24,7 @@ const App = () => {
     <div>
       <div
         id="sticky-banner"
-        className={`${buildTool === "webpack" ? "bg-yellow-900":"bg-red-900"} sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft`}
+        className={`${buildTool === "webpack" ? "bg-yellow-900" : "bg-red-900"} sticky top-0 start-0 z-50 flex justify-between w-full p-4 border-b border-default bg-neutral-primary-soft`}
       >
         <div className="flex items-center mx-auto">
           <p className="flex items-center text-sm font-normal text-body">

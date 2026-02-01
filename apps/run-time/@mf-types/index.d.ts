@@ -6,10 +6,11 @@ import type { PackageType as PackageType_4,RemoteKeys as RemoteKeys_4 } from './
 import type { PackageType as PackageType_5,RemoteKeys as RemoteKeys_5 } from './navbar/apis.d.ts';
 import type { PackageType as PackageType_6,RemoteKeys as RemoteKeys_6 } from './product/apis.d.ts';
 import type { PackageType as PackageType_7,RemoteKeys as RemoteKeys_7 } from './product_collection/apis.d.ts';
-import type { PackageType as PackageType_8,RemoteKeys as RemoteKeys_8 } from './provider/apis.d.ts';
-import type { PackageType as PackageType_9,RemoteKeys as RemoteKeys_9 } from './search/apis.d.ts';
+import type { PackageType as PackageType_8,RemoteKeys as RemoteKeys_8 } from './product_search/apis.d.ts';
+import type { PackageType as PackageType_9,RemoteKeys as RemoteKeys_9 } from './provider/apis.d.ts';
+import type { PackageType as PackageType_10,RemoteKeys as RemoteKeys_10 } from './search/apis.d.ts';
     declare module "@module-federation/runtime" {
-      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9;
+      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9 | RemoteKeys_10;
       type PackageType<T, Y=any> = T extends RemoteKeys_0 ? PackageType_0<T> :
 T extends RemoteKeys_1 ? PackageType_1<T> :
 T extends RemoteKeys_2 ? PackageType_2<T> :
@@ -20,12 +21,13 @@ T extends RemoteKeys_6 ? PackageType_6<T> :
 T extends RemoteKeys_7 ? PackageType_7<T> :
 T extends RemoteKeys_8 ? PackageType_8<T> :
 T extends RemoteKeys_9 ? PackageType_9<T> :
+T extends RemoteKeys_10 ? PackageType_10<T> :
 Y ;
       export function loadRemote<T extends RemoteKeys,Y>(packageName: T): Promise<PackageType<T, Y>>;
       export function loadRemote<T extends string,Y>(packageName: T): Promise<PackageType<T, Y>>;
     }
 declare module "@module-federation/enhanced/runtime" {
-      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9;
+      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9 | RemoteKeys_10;
       type PackageType<T, Y=any> = T extends RemoteKeys_0 ? PackageType_0<T> :
 T extends RemoteKeys_1 ? PackageType_1<T> :
 T extends RemoteKeys_2 ? PackageType_2<T> :
@@ -36,12 +38,13 @@ T extends RemoteKeys_6 ? PackageType_6<T> :
 T extends RemoteKeys_7 ? PackageType_7<T> :
 T extends RemoteKeys_8 ? PackageType_8<T> :
 T extends RemoteKeys_9 ? PackageType_9<T> :
+T extends RemoteKeys_10 ? PackageType_10<T> :
 Y ;
       export function loadRemote<T extends RemoteKeys,Y>(packageName: T): Promise<PackageType<T, Y>>;
       export function loadRemote<T extends string,Y>(packageName: T): Promise<PackageType<T, Y>>;
     }
 declare module "@module-federation/runtime-tools" {
-      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9;
+      type RemoteKeys = RemoteKeys_0 | RemoteKeys_1 | RemoteKeys_2 | RemoteKeys_3 | RemoteKeys_4 | RemoteKeys_5 | RemoteKeys_6 | RemoteKeys_7 | RemoteKeys_8 | RemoteKeys_9 | RemoteKeys_10;
       type PackageType<T, Y=any> = T extends RemoteKeys_0 ? PackageType_0<T> :
 T extends RemoteKeys_1 ? PackageType_1<T> :
 T extends RemoteKeys_2 ? PackageType_2<T> :
@@ -52,6 +55,7 @@ T extends RemoteKeys_6 ? PackageType_6<T> :
 T extends RemoteKeys_7 ? PackageType_7<T> :
 T extends RemoteKeys_8 ? PackageType_8<T> :
 T extends RemoteKeys_9 ? PackageType_9<T> :
+T extends RemoteKeys_10 ? PackageType_10<T> :
 Y ;
       export function loadRemote<T extends RemoteKeys,Y>(packageName: T): Promise<PackageType<T, Y>>;
       export function loadRemote<T extends string,Y>(packageName: T): Promise<PackageType<T, Y>>;

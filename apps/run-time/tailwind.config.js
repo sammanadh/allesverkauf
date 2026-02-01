@@ -7,6 +7,6 @@ module.exports = {
     "../../shared/confirmation/src/**/*.{js,ts,jsx,tsx}",
     "../../shared/product_collection/src/**/*.{js,ts,jsx,tsx}",
     "../../shared/hero/src/**/*.{js,ts,jsx,tsx}",
-    "../../shared/search/src/**/*.{js,ts,jsx,tsx}",
+    "../../shared/product_search/src/**/*.{js,ts,jsx,tsx}",
   ]
 }

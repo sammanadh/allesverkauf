@@ -1,7 +1,7 @@
 import { createModuleFederationConfig } from '@module-federation/rsbuild-plugin';
 
 export default createModuleFederationConfig({
-  name: 'search',
+  name: 'product_search',
   exposes: {
     '.': './src/components/ProviderComponent.tsx',
   },

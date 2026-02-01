@@ -17,8 +17,8 @@ const __dirname = path.dirname(__filename);
 type WebpackConfig = webpack.Configuration | DevConfiguration;
 const distPath = 'deployments/webpack/dist';
 
-const appTitle = 'Search (Webpack)';
-const appName = 'search';
+const appTitle = 'Product Search (Webpack)';
+const appName = 'product_search';
 const port = 3019;
 
 const configFunc = (_env: any, argv: { mode?: "production" | "development" }): WebpackConfig => {
@@ -101,7 +101,7 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
             eager: false,
           },
           '@headlessui/react': { singleton: true },
-          '@heroicons/react': { singleton: true }
+          '@heroicons/react': { singleton: true },
         },
       }),
       new HtmlWebpackPlugin({

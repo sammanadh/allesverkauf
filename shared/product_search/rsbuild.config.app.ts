@@ -5,7 +5,7 @@ import moduleFederationConfig from './module-federation.config';
 
 export default defineConfig({
   html: {
-    title: "Search (Rsbuild)"
+    title: "Product Search (Rsbuild)"
   },
   output: {
     assetPrefix: "auto",

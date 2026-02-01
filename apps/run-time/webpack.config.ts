@@ -82,11 +82,13 @@ const configFunc = (_env: any, argv: { mode?: "production" | "development" }): W
         name: 'run-time',
         filename: 'remoteEntry.js',
         remotes: {
-          'product': 'product@https://allesverkaufproductwp.vercel.app/remoteEntry.js',
           'cart': 'cart@https://allesverkaufcartwp.vercel.app/remoteEntry.js',
           'header': 'header@https://allesverkaufheaderwp.vercel.app//remoteEntry.js',
           'checkout': 'checkout@https://allesverkaufcheckoutwp.vercel.app/remoteEntry.js',
-          'confirmation': 'confirmation@https://allesverkaufconfirmationwp.vercel.app/remoteEntry.js'
+          'confirmation': 'confirmation@https://allesverkaufconfirmationwp.vercel.app/remoteEntry.js',
+          'product_collection': 'product_collection@https://allesverkaufproductcollectionwp.vercel.app/remoteEntry.js',
+          'hero': 'hero@https://allesverkaufherowp.vercel.app/remoteEntry.js',
+          'product_search': 'product_search@https://allesverkaufproductsearchwp.vercel.app/remoteEntry.js'
         },
         shared: {
           react: {
