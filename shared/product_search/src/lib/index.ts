@@ -1,1 +1,1 @@
-export { default as Search } from "../components/ProviderComponent";
+export { default as ProductSearch } from "../components/ProviderComponent";

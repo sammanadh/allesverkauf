@@ -33,6 +33,9 @@
     "publish:header": "cd shared/header && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
     "publish:checkout": "cd shared/checkout && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
     "publish:confirmation": "cd shared/confirmation && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
+    "publish:product_collection": "cd shared/product_collection && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
+    "publish:product_search": "cd shared/product_search && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
+    "publish:hero": "cd shared/hero && npm version patch && npm run build:lib && npm publish --access public && cd ../../",
     "publish:all": "concurrently \"npm run publish:product\", \"npm run publish:cart\" \"npm run publish:header\" \"npm run publish:checkout\" \"npm run publish:confirmation\"",
     "host:all": "concurrently \"npm run buildtime\" \"npm run runtime\"",
     "linkall": "npm link @sammanadh/header @sammanadh/product @sammanadh/cart @sammanadh/server @sammanadh/checkout @sammanadh/confirmation",
@@ -51,6 +54,7 @@
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@microsoft/api-extractor": "^7.55.1",
+    "@module-federation/enhanced": "^0.8.9",
     "@module-federation/rsbuild-plugin": "^0.21.6",
     "@rsbuild/core": "^1.6.4",
     "@rsbuild/plugin-react": "^1.4.2",
@@ -76,8 +80,7 @@
     "typescript": "^5.7.3",
     "webpack": "^5.104.1",
     "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.3",
-    "@module-federation/enhanced": "^0.8.9"
+    "webpack-dev-server": "^5.2.3"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -86,7 +89,9 @@
     "@sammanadh/checkout": "^1.0.0",
     "@sammanadh/confirmation": "^1.0.0",
     "@sammanadh/header": "^1.0.0",
-    "@sammanadh/product": "^1.0.0",
+    "@sammanadh/hero": "^1.0.0",
+    "@sammanadh/product_collection": "^1.0.0",
+    "@sammanadh/product_search": "^1.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.11.0",

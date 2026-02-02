@@ -1,7 +1,24 @@
 {
-  "name": "hero",
-  "private": true,
+  "name": "@sammanadh/hero",
   "version": "1.0.0",
+  "main": "lib-dist/index.cjs",
+  "module": "lib-dist/index.js",
+  "types": "./lib-dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib-dist/index.d.ts",
+        "default": "./lib-dist/index.js"
+      },
+      "require": {
+        "types": "./lib-dist/index.d.cts",
+        "default": "./lib-dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "lib-dist"
+  ],
   "scripts": {
     "dev:rsbuild": "rsbuild dev --config rsbuild.config.app.ts",
     "build:rsbuild": "rsbuild build --config rsbuild.config.app.ts",
