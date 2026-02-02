@@ -62,10 +62,6 @@ function Header({ onCartClick }) {
                                             className: "size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                                         }),
                                         /*#__PURE__*/ jsx("span", {
-                                            className: "ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800",
-                                            children: "0"
-                                        }),
-                                        /*#__PURE__*/ jsx("span", {
                                             className: "sr-only",
                                             children: "items in cart, view bag"
                                         })

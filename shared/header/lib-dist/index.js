@@ -13,7 +13,7 @@ var __webpack_require__ = {};
 })();
 (()=>{
     __webpack_require__.r = (exports1)=>{
-        if ('undefined' != typeof Symbol && Symbol.toStringTag) Object.defineProperty(exports1, Symbol.toStringTag, {
+        if ("u" > typeof Symbol && Symbol.toStringTag) Object.defineProperty(exports1, Symbol.toStringTag, {
             value: 'Module'
         });
         Object.defineProperty(exports1, '__esModule', {
@@ -90,10 +90,6 @@ function Header({ onCartClick }) {
                                             className: "size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
                                         }),
                                         /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                            className: "ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800",
-                                            children: "0"
-                                        }),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
                                             className: "sr-only",
                                             children: "items in cart, view bag"
                                         })
@@ -108,9 +104,9 @@ function Header({ onCartClick }) {
     });
 }
 exports.Header = __webpack_exports__.Header;
-for(var __webpack_i__ in __webpack_exports__)if (-1 === [
+for(var __rspack_i in __webpack_exports__)if (-1 === [
     "Header"
-].indexOf(__webpack_i__)) exports[__webpack_i__] = __webpack_exports__[__webpack_i__];
+].indexOf(__rspack_i)) exports[__rspack_i] = __webpack_exports__[__rspack_i];
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
