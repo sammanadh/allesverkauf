@@ -62,23 +62,7 @@ function Header({ onCartClick }) {
                     children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("div", {
                         className: "flex h-16 items-center",
                         children: [
-                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
-                                className: "ml-4 flex lg:ml-0",
-                                children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("a", {
-                                    href: "/",
-                                    children: [
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "alleskaufen"
-                                        }),
-                                        /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("img", {
-                                            alt: "",
-                                            src: "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600",
-                                            className: "h-8 w-auto"
-                                        })
-                                    ]
-                                })
-                            }),
+                            /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {}),
                             /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsx)("div", {
                                 className: "ml-auto flow-root",
                                 children: /*#__PURE__*/ (0, jsx_runtime_namespaceObject.jsxs)("button", {

@@ -97,7 +97,7 @@
     "@sammanadh/cart": "^1.0.0",
     "@sammanadh/checkout": "^1.0.0",
     "@sammanadh/confirmation": "^1.0.0",
-    "@sammanadh/header": "^1.0.4",
+    "@sammanadh/header": "^1.0.6",
     "@sammanadh/hero": "^1.0.0",
     "@sammanadh/product_collection": "^1.0.0",
     "@sammanadh/product_search": "^1.0.1",
