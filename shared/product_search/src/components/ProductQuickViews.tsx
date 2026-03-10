@@ -1,4 +1,10 @@
-{/* CITATION_START CITATION_LINK: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-quickviews */ }
+/**
+ * SOURCE CODE CITATION
+ *
+ * The following code is adapted from:
+ * Source: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-quickviews
+ */
+
 import { Dialog, DialogBackdrop, DialogPanel } from '@headlessui/react'
 import { Product } from "../types/product.ts";
 import { XMarkIcon } from '@heroicons/react/24/outline'

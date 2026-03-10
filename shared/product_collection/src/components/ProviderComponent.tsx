@@ -61,7 +61,14 @@ const ProviderComponent = ({ title, strategy, onAddToCart }: ProductListProps) =
           clickedProduct !== undefined &&
           <ProductQuickViews onAddToCart={handleAddToCart} product={clickedProduct} open={openQuickView} onClose={() => setOpenQuickView(false)} />
         }
-        {/* CITATION_START CITATION_LINK: https://flowbite.com/docs/components/carousel/ */}
+        {
+          /**
+           * SOURCE CODE CITATION
+           *
+           * The following code is adapted from:
+           * Source: https://flowbite.com/docs/components/carousel/
+           */
+        }
         <div>
           <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <h2 className="text-2xl font-bold tracking-tight text-gray-900">{title}</h2>

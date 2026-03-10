@@ -1,9 +1,8 @@
-
 /**
- * CITATION_START
- * NOTE:
- * These mock datasets was generated using an AI language model (ChatGPT by OpenAI)
- */
+  * DISCLOSURE: AI Generated Code 
+  * These mock datasets was generated using an AI language model (ChatGPT by OpenAI)
+*/
+
 export const trendingProducts = [
   {
     id: "clothing_001",
@@ -251,7 +250,3 @@ export const bestSellersProducts = [
 ]
 
 export const allProducts = [...trendingProducts, ...bestSellersProducts]
-
-/**
- * CITATION_START
- */

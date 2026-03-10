@@ -64,7 +64,14 @@ const ProviderComponent = ({ onAddToCart, onSearchTermChange }: ProductListProps
           <ProductQuickViews onAddToCart={handleAddToCart} product={clickedProduct} open={openQuickView} onClose={() => setOpenQuickView(false)} />
         }
         <SearchBar onSearchTermChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e?.target.value)} />
-        {/* CITATION_START CITATION_LINK: https://flowbite.com/docs/components/carousel/ */}
+        {
+          /**
+           * SOURCE CODE CITATION
+           *
+           * The following code is adapted from:
+           * Source: https://flowbite.com/docs/components/carousel/
+           */
+        }
         {
           showSearchedResults &&
           (

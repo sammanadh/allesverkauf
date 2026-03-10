@@ -1,5 +1,12 @@
 
-{/* CITATION_START CITATION_LINK: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/shopping-carts */ }
+{
+  /**
+   * SOURCE CODE CITATION
+   *
+   * The following code is adapted from:
+   * Source: https://tailwindcss.com/plus/ui-blocks/ecommerce/components/shopping-carts
+   */
+}
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { useMemo } from 'react'

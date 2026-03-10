@@ -1,10 +1,9 @@
 /**
- * CITATION_START
- * NOTE:
- * Much of these configuration code are genrated using AI (ChatGPT/ClaudeAI)
- */
+  * DISCLOSURE: AI Generated Code 
+  * Much of these configuration code was genrated using ClaudeAI
+  * The author and adopted and verified the code for correctness.
+*/
 
-// webpack.config.ts
 import webpack from 'webpack';
 import type { Configuration as DevConfiguration } from 'webpack-dev-server';
 import HtmlWebpackPlugin from 'html-webpack-plugin';

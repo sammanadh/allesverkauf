@@ -1,5 +1,10 @@
 {
-  /* CITATION_START CITATION_LINK: https://flowbite.com/blocks/e-commerce/checkout/ */
+  /**
+   * SOURCE CODE CITATION
+   *
+   * The following code is adapted from:
+   * Source: https://flowbite.com/blocks/e-commerce/checkout/
+   */
 }
 import { useMemo, useState } from "react";
 import "./ProviderComponent.css";
