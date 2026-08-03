@@ -4,6 +4,18 @@ A microfrontend-architecture showcase built on top of a simple e-commerce storef
 
 ---
 
+> **Live deployments**
+>
+> Each host app is deployed independently to Vercel. You can explore the running application without setting anything up locally:
+>
+> | App | Integration strategy | URL |
+> |---|---|---|
+> | Build-Time Host | Build-time | https://btallesverkauf.vercel.app |
+> | Runtime Host (MF v2) | Runtime — Module Federation v2 |  https://rtallesverkaufrb.vercel.app |
+> | Runtime Host (MF v1) | Runtime — Module Federation v1 | https://rtallesverkaufwp.vercel.app |
+
+---
+
 ## Table of Contents
 
 - [What is Microfrontend Architecture?](#what-is-microfrontend-architecture)
